@@ -13,13 +13,13 @@
 - `ProjectsSection`: imágenes resueltas con `BASE_URL` (antes usaban `/projects/...` absoluto y se rompían con `base: /portfolio/`).
 - `vite.config.js`: `base` condicional — `/` cuando `VERCEL=1`, `/portfolio/` para GitHub Pages.
 - `vercel.json`: rewrite SPA a `index.html`.
-- CV (`docs/Thomas Livon Stetic (CV).docx`): agregados conocimientos de la página, sección de proyectos y links de GitHub/portfolio.
+- CV (`docs/Thomas Livon Stetic (CV).docx`, no versionado): agregados conocimientos de la página (TypeScript, Tailwind, MySQL, PostgreSQL, MongoDB, Spring Boot/Hibernate, .NET, Wix Corvid, Odoo, Bash), sección "Proyectos" con los 3 proyectos de la página, y links a GitHub y al portfolio en el encabezado. Columnas de Conocimientos rebalanceadas (11/11).
+- Vercel: el repo ya tenía un proyecto "portfolio" vinculado; se renombró a "portofolio", se desactivó Vercel Authentication (los deploys pedían login) y se asignó el dominio `thomas-livon.vercel.app`.
 
 ### Decisiones
 - Se mantuvo compatibilidad con GitHub Pages en lugar de reemplazarlo por Vercel.
+- El `.docx` del CV NO se commitea: contiene DNI, domicilio y fecha de nacimiento y el repo es público. Queda en `docs/` solo localmente.
 - Los tokens `text-muted-foreground` / `bg-secondary` no están definidos en `@theme`; no se tocaron para no cambiar el look sin consultar (ver análisis de mejoras).
 
 ### Pendiente
-- `public/projects/project2.png` no existe (card de la app VB.NET sin imagen).
-- Definir `--muted-foreground` y `--secondary` en `index.css`.
-- Errores de lint preexistentes en `ContactSection.jsx` (formulario comentado).
+- Ver `docs/mejoras.md` (análisis completo priorizado). Lo más urgente: `window.screenY` → `scrollY` en Navbar, tokens de color faltantes en `@theme`, `project2.png` inexistente, `lang="es"` + meta description/OG, errores de lint en `ContactSection.jsx`.
