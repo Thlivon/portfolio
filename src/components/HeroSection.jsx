@@ -1,7 +1,5 @@
 import { ArrowDown } from "lucide-react";
 
-//Profesional con más de 4 años de experiencia en desarrollo y gestión de proyectos, con enfoque en optimización de procesos, mejora continua, análisis de datos, resolución de problemas y trabajo en equipo. Destaco por mi capacidad de adaptación a entornos ágiles, colaboración multidisciplinaria y orientación a resultados medibles que impulsan la eficiencia operativa y el crecimiento del negocio. Comprometido con la innovación y la transformación digital, busco aportar valor a través de soluciones escalables y estratégicas que generen impacto positivo en la organización.
-
 export const HeroSection = () => {
   return (
     <section
@@ -23,7 +21,7 @@ export const HeroSection = () => {
           </h1>
 
           <p className="text-lg md:text-xl text-muted-foreground max-2-2xl mx-auto opacity-0 animate-fade-in-delay-3">
-            Profesional con más de 4 años de experiencia en desarrollo y gestión
+            Profesional con más de 5 años de experiencia en desarrollo y gestión
             de proyectos, con enfoque en optimización de procesos, mejora
             continua, análisis de datos, resolución de problemas y trabajo en
             equipo. Destaco por mi capacidad de adaptación a entornos ágiles,

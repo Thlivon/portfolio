@@ -16,7 +16,7 @@ export const AboutSection = () => {
             </h3>
 
             <p className="text-muted-foreground">
-              Profesional con más de 4 años de experiencia en desarrollo y
+              Profesional con más de 5 años de experiencia en desarrollo y
               gestión de proyectos, especializado en la optimización de
               procesos, análisis de datos y desarrollo de soluciones escalables.
               Me adapto a entornos ágiles y me oriento a resultados medibles.
@@ -24,9 +24,10 @@ export const AboutSection = () => {
 
             <p className="text-muted-foreground">
               Mi experiencia incluye el Desarrollo FullStack con SQL Server y
-              Oracle, desarrollo frontend con JavaScript, e integración de
-              procesos con sistemas como SAP y OpenDev. Busco aportar valor a
-              través de la innovación y transformación digital.
+              Oracle, desarrollo frontend con JavaScript, integración de
+              procesos con sistemas como SAP, OpenDev, SNP y SUME, y redacción
+              de documentación funcional, técnica y manuales de usuario. Busco
+              aportar valor a través de la innovación y transformación digital.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center">

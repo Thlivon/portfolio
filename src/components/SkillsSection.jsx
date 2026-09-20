@@ -25,6 +25,7 @@ const skills = [
   { name: "Hibernate", level: 80, category: "tools" },
   { name: "Spring Boot", level: 80, category: "tools" },
   { name: "n8n-AI workflow automation", level: 70, category: "tools" },
+  { name: "Claude Code", level: 70, category: "tools" },
   { name: ".NET Framework", level: 60, category: "tools" },
   { name: "ASP.NET Core", level: 60, category: "tools" },
   { name: "Windows Forms", level: 60, category: "tools" },
