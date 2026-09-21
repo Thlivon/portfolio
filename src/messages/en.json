@@ -1,0 +1,237 @@
+{
+  "nav": {
+    "brandName": "Thomas Livon",
+    "brandSuffix": "Portfolio",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "home": "Home",
+    "about": "About",
+    "experience": "Experience",
+    "skills": "Skills",
+    "projects": "Projects",
+    "education": "Education",
+    "contact": "Contact"
+  },
+  "theme": {
+    "toggleToLight": "Switch to light mode",
+    "toggleToDark": "Switch to dark mode"
+  },
+  "hero": {
+    "greeting": "Hi, I'm",
+    "firstName": "Thomas",
+    "lastName": "Livon",
+    "description": "Professional with over 5 years of experience in development and project management, focused on process optimization, continuous improvement, data analysis, problem solving and teamwork. I stand out for my ability to adapt to agile environments, multidisciplinary collaboration and a focus on measurable results that drive operational efficiency and business growth. Committed to innovation and digital transformation, I aim to add value through scalable, strategic solutions that generate a positive impact on the organization.",
+    "cta": "View My Work",
+    "scroll": "Scroll"
+  },
+  "about": {
+    "heading1": "About",
+    "heading2": "Me",
+    "role": "Full-Stack Developer & Systems Analyst",
+    "paragraph1": "Professional with over 5 years of experience in development and project management, specialized in process optimization, data analysis and development of scalable solutions. I adapt easily to agile environments and focus on measurable results.",
+    "paragraph2": "My experience includes Full-Stack development with SQL Server and Oracle, frontend development with JavaScript, process integration with systems such as SAP, OpenDev, SNP and SUME, and writing functional and technical documentation and user manuals. I aim to add value through innovation and digital transformation.",
+    "contactCta": "Contact Me",
+    "downloadCv": "Download CV",
+    "cards": [
+      {
+        "title": "Full-Stack Development & Databases",
+        "description": "Backend architecture and feature development with SQL Server and Oracle, plus frontend development with JavaScript."
+      },
+      {
+        "title": "Process Analysis & Optimization",
+        "description": "Systems analysis for continuous improvement and automation of deployment and testing processes using Bash scripting."
+      },
+      {
+        "title": "Project Management & Quality Assurance (QA)",
+        "description": "Experience managing business application projects and comprehensive solution testing (QA, functional and technical validation)."
+      }
+    ]
+  },
+  "skills": {
+    "heading1": "My",
+    "heading2": "Skills",
+    "categories": {
+      "all": "All",
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "tools": "Tools"
+    },
+    "items": [
+      { "name": "JavaScript", "level": 90, "category": "frontend" },
+      { "name": "Form Development", "level": 90, "category": "frontend" },
+      { "name": "Wix Corvid (Velo by Wix)", "level": 90, "category": "frontend" },
+      { "name": "React", "level": 70, "category": "frontend" },
+      { "name": "TypeScript", "level": 50, "category": "frontend" },
+      { "name": "Tailwind", "level": 50, "category": "frontend" },
+      { "name": "SQL Server", "level": 100, "category": "backend" },
+      { "name": "Oracle", "level": 100, "category": "backend" },
+      { "name": "MySQL", "level": 90, "category": "backend" },
+      { "name": "Java", "level": 80, "category": "backend" },
+      { "name": "Python", "level": 80, "category": "backend" },
+      { "name": "Node.js", "level": 80, "category": "backend" },
+      { "name": "Visual Basic .NET", "level": 60, "category": "backend" },
+      { "name": "C", "level": 45, "category": "backend" },
+      { "name": "Git & GitHub", "level": 100, "category": "tools" },
+      { "name": "Hibernate", "level": 80, "category": "tools" },
+      { "name": "Spring Boot", "level": 80, "category": "tools" },
+      { "name": "n8n-AI workflow automation", "level": 70, "category": "tools" },
+      { "name": "Claude Code", "level": 70, "category": "tools" },
+      { "name": ".NET Framework", "level": 60, "category": "tools" },
+      { "name": "ASP.NET Core", "level": 60, "category": "tools" },
+      { "name": "Windows Forms", "level": 60, "category": "tools" }
+    ]
+  },
+  "experience": {
+    "heading1": "My",
+    "heading2": "Experience",
+    "clientsLabel": "Clients",
+    "projectsLabel": "Featured Projects",
+    "items": [
+      {
+        "period": "July 2023 - Present",
+        "role": "Full-Stack Developer & Systems Analyst",
+        "company": "Engage Business Solution",
+        "summary": "Full-Stack development of applications for Incident Management, Administrative Management, Financial Management and Collections Management.",
+        "bullets": [
+          "Architecture and feature development in SQL Server and Oracle",
+          "Customization of Engage products",
+          "Frontend development with forms and JavaScript",
+          "Process integration with SAP, OpenDev, SNP and SUME",
+          "Automation of deployment and testing processes using Bash scripting",
+          "Writing of functional and technical documentation and user manuals",
+          "Comprehensive testing of developed solutions (QA, functional and technical validation)"
+        ],
+        "clients": ["Medife", "Sol Naciente", "Banco Industrial (BIND)"],
+        "projects": [
+          "Property Management",
+          "Collections Portal",
+          "Visitor Portal",
+          "Policy & Addendum Management",
+          "Collections Management",
+          "External Agency Management"
+        ]
+      },
+      {
+        "period": "February 2021 - June 2023",
+        "role": "Frontend Developer & Systems Analyst",
+        "company": "Banfield GL",
+        "summary": "Frontend developer of a corporate site using native JavaScript on Wix, with database integration and automation of warranty management processes.",
+        "bullets": [
+          "Native JavaScript: development of asynchronous functions for process optimization",
+          "Wix Corvid (Velo by Wix): implementation of business logic and website customization",
+          "Databases: integration for sales management and operations logging",
+          "Automation: generation of unique, custom warranty codes"
+        ],
+        "clients": [],
+        "projects": []
+      }
+    ]
+  },
+  "education": {
+    "heading1": "Education",
+    "heading2": "& Courses",
+    "academicTitle": "Academic Background",
+    "languagesTitle": "Languages",
+    "coursesTitle": "Courses",
+    "education": [
+      {
+        "period": "March 2021 - Present",
+        "title": "Bachelor's Degree in Information Systems",
+        "institution": "Universidad Nacional de Lanús",
+        "detail": "28 of 36 courses completed."
+      },
+      {
+        "period": "March 2015 - November 2020",
+        "title": "High School Diploma in Economics and Administration",
+        "institution": "Colegio San Juan de la Cruz",
+        "detail": ""
+      }
+    ],
+    "courses": [
+      {
+        "date": "January 2025",
+        "title": "Learn Oracle SQL From Scratch",
+        "platform": "Udemy",
+        "detail": "15.5 hours, taught by Apasoft Training."
+      },
+      {
+        "date": "October 2024",
+        "title": "Complete Generative AI Course: ChatGPT, Midjourney and More!",
+        "platform": "Udemy",
+        "detail": "18 hours, taught by Santiago Hernández."
+      },
+      {
+        "date": "August 2023",
+        "title": "SQL Server Masterclass: From Scratch to Professional Level",
+        "platform": "Udemy",
+        "detail": "16 hours, taught by Mariano Puglisi."
+      },
+      {
+        "date": "March 2022",
+        "title": "SQL: Database Creation (From Scratch to Professional)",
+        "platform": "Udemy",
+        "detail": "2 hours, taught by Numpi Cursos."
+      },
+      {
+        "date": "March 2022",
+        "title": "Learn SQL From Scratch: A Course With Over 50 Exercises!",
+        "platform": "Udemy",
+        "detail": "1.5 hours, taught by Raúl Montesinos."
+      }
+    ],
+    "languages": [
+      { "name": "Spanish", "level": "Native" },
+      { "name": "English", "level": "Lower intermediate" }
+    ]
+  },
+  "projects": {
+    "heading1": "Featured",
+    "heading2": "Projects",
+    "subtitle": "Here are some of my most recent projects.",
+    "githubCta": "My Github",
+    "items": [
+      {
+        "title": "Real Estate Management Module",
+        "description": "Odoo 18 module for real estate agency management.",
+        "image": "/projects/project1.png",
+        "tags": ["Odoo 18", "Python", "PostgreSQL"],
+        "demoUrl": "#",
+        "githubUrl": "https://github.com/Thlivon/odoo_unla_2025_grupo_m"
+      },
+      {
+        "title": "Desktop App for Sales Management",
+        "description": "Desktop application to manage sales, customers and products.",
+        "image": "/projects/project2.png",
+        "tags": ["Visual Basic .NET", "SQL Server"],
+        "demoUrl": "#",
+        "githubUrl": "#"
+      },
+      {
+        "title": "E-commerce BanfieldGL",
+        "description": "Production corporate website.",
+        "image": "/projects/project3.png",
+        "tags": ["Wix", "Javascript", "MongoDB"],
+        "demoUrl": "https://www.banfieldgl.com/",
+        "githubUrl": "#"
+      }
+    ]
+  },
+  "contact": {
+    "heading": "Contact",
+    "subtitle": "Have a project in mind or want to collaborate? Feel free to reach out. I'm always open to new opportunities.",
+    "infoTitle": "Contact Information",
+    "emailLabel": "Email",
+    "phoneLabel": "Phone",
+    "locationLabel": "Location",
+    "location": "Buenos Aires Province, Argentina",
+    "usefulLinksTitle": "Useful Links"
+  },
+  "footer": {
+    "rights": "All rights reserved."
+  },
+  "notFound": {
+    "title": "Page Not Found",
+    "message": "The page you're looking for doesn't exist or was moved.",
+    "backHome": "Back to Home"
+  }
+}

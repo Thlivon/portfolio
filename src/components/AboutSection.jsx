@@ -1,39 +1,32 @@
 import { Briefcase, Code, User } from "lucide-react";
+import { useTranslations } from "@/i18n/LanguageProvider";
+
+const ICONS = [Code, User, Briefcase];
 
 export const AboutSection = () => {
+  const { messages } = useTranslations();
+  const { about } = messages;
+
   return (
     <section id="about" className="py-24 px-4 relative">
       {" "}
       <div className="container mx-auto max-w-5xl">
         <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
-          About <span className="text-primary"> Me</span>
+          {about.heading1} <span className="text-primary"> {about.heading2}</span>
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
-            <h3 className="text-2xl font-semibold">
-              Desarrollador FullStack & Analista de Sistemas
-            </h3>
+            <h3 className="text-2xl font-semibold">{about.role}</h3>
 
-            <p className="text-muted-foreground">
-              Profesional con más de 5 años de experiencia en desarrollo y
-              gestión de proyectos, especializado en la optimización de
-              procesos, análisis de datos y desarrollo de soluciones escalables.
-              Me adapto a entornos ágiles y me oriento a resultados medibles.
-            </p>
+            <p className="text-muted-foreground">{about.paragraph1}</p>
 
-            <p className="text-muted-foreground">
-              Mi experiencia incluye el Desarrollo FullStack con SQL Server y
-              Oracle, desarrollo frontend con JavaScript, integración de
-              procesos con sistemas como SAP, OpenDev, SNP y SUME, y redacción
-              de documentación funcional, técnica y manuales de usuario. Busco
-              aportar valor a través de la innovación y transformación digital.
-            </p>
+            <p className="text-muted-foreground">{about.paragraph2}</p>
 
             <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center">
               <a href="#contact" className="cosmic-button">
                 {" "}
-                Contáctame
+                {about.contactCta}
               </a>
 
               <a
@@ -42,64 +35,28 @@ export const AboutSection = () => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Descargar CV
+                {about.downloadCv}
               </a>
             </div>
           </div>
 
           <div className="grid grid-cols-1 gap-6">
-            <div className="gradient-border p-6 card-hover">
-              <div className="flex items-start gap-4">
-                <div className="p-3 rounded-full bg-primary/10">
-                  <Code className="h-6 w-6 text-primary" />
+            {about.cards.map((card, index) => {
+              const Icon = ICONS[index];
+              return (
+                <div key={card.title} className="gradient-border p-6 card-hover">
+                  <div className="flex items-start gap-4">
+                    <div className="p-3 rounded-full bg-primary/10">
+                      <Icon className="h-6 w-6 text-primary" />
+                    </div>
+                    <div className="text-left">
+                      <h4 className="font-semibold text-lg"> {card.title}</h4>
+                      <p className="text-muted-foreground">{card.description}</p>
+                    </div>
+                  </div>
                 </div>
-                <div className="text-left">
-                  <h4 className="font-semibold text-lg">
-                    {" "}
-                    Desarrollo FullStack & Bases de Datos
-                  </h4>
-                  <p className="text-muted-foreground">
-                    Arquitectura y desarrollo de funcionalidades de Backend con
-                    SQL Server y Oracle, y desarrollo Frontend con JavaScript.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="gradient-border p-6 card-hover">
-              <div className="flex items-start gap-4">
-                <div className="p-3 rounded-full bg-primary/10">
-                  <User className="h-6 w-6 text-primary" />
-                </div>
-                <div className="text-left">
-                  <h4 className="font-semibold text-lg">
-                    Análisis y Optimización de Procesos
-                  </h4>
-                  <p className="text-muted-foreground">
-                    Análisis de sistemas para la mejora continua y
-                    automatización de procesos de deployment y testing mediante
-                    Bash Scripting.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="gradient-border p-6 card-hover">
-              <div className="flex items-start gap-4">
-                <div className="p-3 rounded-full bg-primary/10">
-                  <Briefcase className="h-6 w-6 text-primary" />
-                </div>
-
-                <div className="text-left">
-                  <h4 className="font-semibold text-lg">
-                    Gestión de Proyectos y Calidad (QA)
-                  </h4>
-                  <p className="text-muted-foreground">
-                    Experiencia en la gestión de proyectos de aplicativos de
-                    negocio y testing integral de soluciones (QA, validación
-                    funcional y técnica).
-                  </p>
-                </div>
-              </div>
-            </div>
+              );
+            })}
           </div>
         </div>
       </div>

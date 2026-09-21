@@ -1,58 +1,19 @@
 import { Briefcase, Calendar } from "lucide-react";
-
-const experiences = [
-  {
-    period: "Julio 2023 - Actualidad",
-    role: "Desarrollador FullStack y Analista de Sistemas",
-    company: "Engage Business Solution",
-    summary:
-      "Desarrollo FullStack de aplicativos afines a Gestión de Incidencias, Gestión Administrativa, Gestión Financiera y Gestión de Cobranzas.",
-    bullets: [
-      "Arquitectura y desarrollo de funcionalidades en SQL Server y Oracle",
-      "Personalización de productos Engage",
-      "Desarrollo frontend con formularios y JavaScript",
-      "Integración de procesos con SAP, OpenDev, SNP y SUME",
-      "Automatización de procesos de deployment y testing mediante Bash Scripting",
-      "Redacción de documentación funcional, técnica y manuales de usuario",
-      "Testing integral de soluciones desarrolladas (QA, validación funcional y técnica)",
-    ],
-    clients: ["Medife", "Sol Naciente", "Banco Industrial (BIND)"],
-    projects: [
-      "Administración de Propiedades",
-      "Portal de Recaudaciones",
-      "Portal de Visitas",
-      "Gestión de Pólizas y Adendas",
-      "Gestión de Cobranzas",
-      "Gestión de Agencias Externas",
-    ],
-  },
-  {
-    period: "Febrero 2021 - Junio 2023",
-    role: "Desarrollador FrontEnd y Analista de Sistemas",
-    company: "Banfield GL",
-    summary:
-      "Desarrollador Frontend de sitio corporativo utilizando JavaScript nativo en Wix, con integración a bases de datos y automatización de procesos de gestión de garantías.",
-    bullets: [
-      "JavaScript nativo: desarrollo de funciones asíncronas para optimización de procesos",
-      "Wix Corvid (Velo by Wix): implementación de lógica de negocio y personalización de sitio web",
-      "Bases de datos: integración para gestión de ventas y registro de operaciones",
-      "Automatización: generación de códigos de garantía únicos y personalizados",
-    ],
-    clients: [],
-    projects: [],
-  },
-];
+import { useTranslations } from "@/i18n/LanguageProvider";
 
 export const ExperienceSection = () => {
+  const { messages } = useTranslations();
+  const { experience } = messages;
+
   return (
     <section id="experience" className="py-24 px-4 relative bg-secondary/30">
       <div className="container mx-auto max-w-5xl">
         <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
-          Mi <span className="text-primary"> Experiencia</span>
+          {experience.heading1} <span className="text-primary"> {experience.heading2}</span>
         </h2>
 
         <div className="space-y-8">
-          {experiences.map((exp) => (
+          {experience.items.map((exp) => (
             <article
               key={exp.company}
               className="bg-card p-6 md:p-8 rounded-lg shadow-xs card-hover text-left"
@@ -83,7 +44,7 @@ export const ExperienceSection = () => {
 
               {exp.clients.length > 0 && (
                 <div className="mb-3">
-                  <h4 className="font-medium mb-2">Clientes</h4>
+                  <h4 className="font-medium mb-2">{experience.clientsLabel}</h4>
                   <div className="flex flex-wrap gap-2">
                     {exp.clients.map((c) => (
                       <span
@@ -99,7 +60,7 @@ export const ExperienceSection = () => {
 
               {exp.projects.length > 0 && (
                 <div>
-                  <h4 className="font-medium mb-2">Proyectos destacados</h4>
+                  <h4 className="font-medium mb-2">{experience.projectsLabel}</h4>
                   <div className="flex flex-wrap gap-2">
                     {exp.projects.map((p) => (
                       <span

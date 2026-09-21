@@ -1,0 +1,237 @@
+{
+  "nav": {
+    "brandName": "Thomas Livon",
+    "brandSuffix": "Portfolio",
+    "openMenu": "Abrir menú",
+    "closeMenu": "Cerrar menú",
+    "home": "Inicio",
+    "about": "Sobre mí",
+    "experience": "Experiencia",
+    "skills": "Habilidades",
+    "projects": "Proyectos",
+    "education": "Educación",
+    "contact": "Contacto"
+  },
+  "theme": {
+    "toggleToLight": "Cambiar a modo claro",
+    "toggleToDark": "Cambiar a modo oscuro"
+  },
+  "hero": {
+    "greeting": "Hola, soy",
+    "firstName": "Thomas",
+    "lastName": "Livon",
+    "description": "Profesional con más de 5 años de experiencia en desarrollo y gestión de proyectos, con enfoque en optimización de procesos, mejora continua, análisis de datos, resolución de problemas y trabajo en equipo. Destaco por mi capacidad de adaptación a entornos ágiles, colaboración multidisciplinaria y orientación a resultados medibles que impulsan la eficiencia operativa y el crecimiento del negocio. Comprometido con la innovación y la transformación digital, busco aportar valor a través de soluciones escalables y estratégicas que generen impacto positivo en la organización.",
+    "cta": "Ver mi trabajo",
+    "scroll": "Desplázate"
+  },
+  "about": {
+    "heading1": "Sobre",
+    "heading2": "Mí",
+    "role": "Desarrollador FullStack & Analista de Sistemas",
+    "paragraph1": "Profesional con más de 5 años de experiencia en desarrollo y gestión de proyectos, especializado en la optimización de procesos, análisis de datos y desarrollo de soluciones escalables. Me adapto a entornos ágiles y me oriento a resultados medibles.",
+    "paragraph2": "Mi experiencia incluye el Desarrollo FullStack con SQL Server y Oracle, desarrollo frontend con JavaScript, integración de procesos con sistemas como SAP, OpenDev, SNP y SUME, y redacción de documentación funcional, técnica y manuales de usuario. Busco aportar valor a través de la innovación y transformación digital.",
+    "contactCta": "Contáctame",
+    "downloadCv": "Descargar CV",
+    "cards": [
+      {
+        "title": "Desarrollo FullStack & Bases de Datos",
+        "description": "Arquitectura y desarrollo de funcionalidades de Backend con SQL Server y Oracle, y desarrollo Frontend con JavaScript."
+      },
+      {
+        "title": "Análisis y Optimización de Procesos",
+        "description": "Análisis de sistemas para la mejora continua y automatización de procesos de deployment y testing mediante Bash Scripting."
+      },
+      {
+        "title": "Gestión de Proyectos y Calidad (QA)",
+        "description": "Experiencia en la gestión de proyectos de aplicativos de negocio y testing integral de soluciones (QA, validación funcional y técnica)."
+      }
+    ]
+  },
+  "skills": {
+    "heading1": "Mis",
+    "heading2": "Habilidades",
+    "categories": {
+      "all": "Todas",
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "tools": "Herramientas"
+    },
+    "items": [
+      { "name": "JavaScript", "level": 90, "category": "frontend" },
+      { "name": "Desarrollo de Formularios", "level": 90, "category": "frontend" },
+      { "name": "Wix Corvid (Velo by Wix)", "level": 90, "category": "frontend" },
+      { "name": "React", "level": 70, "category": "frontend" },
+      { "name": "TypeScript", "level": 50, "category": "frontend" },
+      { "name": "Tailwind", "level": 50, "category": "frontend" },
+      { "name": "SQL Server", "level": 100, "category": "backend" },
+      { "name": "Oracle", "level": 100, "category": "backend" },
+      { "name": "MySQL", "level": 90, "category": "backend" },
+      { "name": "Java", "level": 80, "category": "backend" },
+      { "name": "Python", "level": 80, "category": "backend" },
+      { "name": "Node.js", "level": 80, "category": "backend" },
+      { "name": "Visual Basic .NET", "level": 60, "category": "backend" },
+      { "name": "C", "level": 45, "category": "backend" },
+      { "name": "Git & GitHub", "level": 100, "category": "tools" },
+      { "name": "Hibernate", "level": 80, "category": "tools" },
+      { "name": "Spring Boot", "level": 80, "category": "tools" },
+      { "name": "n8n-AI workflow automation", "level": 70, "category": "tools" },
+      { "name": "Claude Code", "level": 70, "category": "tools" },
+      { "name": ".NET Framework", "level": 60, "category": "tools" },
+      { "name": "ASP.NET Core", "level": 60, "category": "tools" },
+      { "name": "Windows Forms", "level": 60, "category": "tools" }
+    ]
+  },
+  "experience": {
+    "heading1": "Mi",
+    "heading2": "Experiencia",
+    "clientsLabel": "Clientes",
+    "projectsLabel": "Proyectos destacados",
+    "items": [
+      {
+        "period": "Julio 2023 - Actualidad",
+        "role": "Desarrollador FullStack y Analista de Sistemas",
+        "company": "Engage Business Solution",
+        "summary": "Desarrollo FullStack de aplicativos afines a Gestión de Incidencias, Gestión Administrativa, Gestión Financiera y Gestión de Cobranzas.",
+        "bullets": [
+          "Arquitectura y desarrollo de funcionalidades en SQL Server y Oracle",
+          "Personalización de productos Engage",
+          "Desarrollo frontend con formularios y JavaScript",
+          "Integración de procesos con SAP, OpenDev, SNP y SUME",
+          "Automatización de procesos de deployment y testing mediante Bash Scripting",
+          "Redacción de documentación funcional, técnica y manuales de usuario",
+          "Testing integral de soluciones desarrolladas (QA, validación funcional y técnica)"
+        ],
+        "clients": ["Medife", "Sol Naciente", "Banco Industrial (BIND)"],
+        "projects": [
+          "Administración de Propiedades",
+          "Portal de Recaudaciones",
+          "Portal de Visitas",
+          "Gestión de Pólizas y Adendas",
+          "Gestión de Cobranzas",
+          "Gestión de Agencias Externas"
+        ]
+      },
+      {
+        "period": "Febrero 2021 - Junio 2023",
+        "role": "Desarrollador FrontEnd y Analista de Sistemas",
+        "company": "Banfield GL",
+        "summary": "Desarrollador Frontend de sitio corporativo utilizando JavaScript nativo en Wix, con integración a bases de datos y automatización de procesos de gestión de garantías.",
+        "bullets": [
+          "JavaScript nativo: desarrollo de funciones asíncronas para optimización de procesos",
+          "Wix Corvid (Velo by Wix): implementación de lógica de negocio y personalización de sitio web",
+          "Bases de datos: integración para gestión de ventas y registro de operaciones",
+          "Automatización: generación de códigos de garantía únicos y personalizados"
+        ],
+        "clients": [],
+        "projects": []
+      }
+    ]
+  },
+  "education": {
+    "heading1": "Educación",
+    "heading2": "& Cursos",
+    "academicTitle": "Formación académica",
+    "languagesTitle": "Idiomas",
+    "coursesTitle": "Cursos",
+    "education": [
+      {
+        "period": "Marzo 2021 - Actualidad",
+        "title": "Licenciatura en Sistemas",
+        "institution": "Universidad Nacional de Lanús",
+        "detail": "28 de 36 asignaturas aprobadas."
+      },
+      {
+        "period": "Marzo 2015 - Noviembre 2020",
+        "title": "Bachiller en Economía y Administración",
+        "institution": "Colegio San Juan de la Cruz",
+        "detail": ""
+      }
+    ],
+    "courses": [
+      {
+        "date": "Enero 2025",
+        "title": "Aprende Oracle SQL desde cero",
+        "platform": "Udemy",
+        "detail": "15,5 horas instruidas por Apasoft Training."
+      },
+      {
+        "date": "Octubre 2024",
+        "title": "Curso Completo de IA Generativa: ChatGPT, Midjourney y más!",
+        "platform": "Udemy",
+        "detail": "18 horas instruidas por Santiago Hernández."
+      },
+      {
+        "date": "Agosto 2023",
+        "title": "Máster en SQL Server: Desde Cero a Nivel Profesional",
+        "platform": "Udemy",
+        "detail": "16 horas instruidas por Mariano Puglisi."
+      },
+      {
+        "date": "Marzo 2022",
+        "title": "SQL: Creación de Bases de Datos (De cero a profesional)",
+        "platform": "Udemy",
+        "detail": "2 horas instruidas por Numpi Cursos."
+      },
+      {
+        "date": "Marzo 2022",
+        "title": "Aprende SQL desde cero: ¡Curso con más de 50 ejercicios!",
+        "platform": "Udemy",
+        "detail": "1,5 horas instruidas por Raúl Montesinos."
+      }
+    ],
+    "languages": [
+      { "name": "Español", "level": "Nativo" },
+      { "name": "Inglés", "level": "Intermedio básico" }
+    ]
+  },
+  "projects": {
+    "heading1": "Proyectos",
+    "heading2": "Destacados",
+    "subtitle": "Aquí están algunos de mis proyectos más recientes.",
+    "githubCta": "Mi Github",
+    "items": [
+      {
+        "title": "Módulo de Administración de Inmobiliaria",
+        "description": "Módulo de Odoo 18 para la administración de inmobiliarias.",
+        "image": "/projects/project1.png",
+        "tags": ["Odoo 18", "Python", "PostgreSQL"],
+        "demoUrl": "#",
+        "githubUrl": "https://github.com/Thlivon/odoo_unla_2025_grupo_m"
+      },
+      {
+        "title": "Aplicación de escritorio para Gestión de Ventas",
+        "description": "Aplicación de escritorio para gestionar ventas, clientes y productos.",
+        "image": "/projects/project2.png",
+        "tags": ["Visual Basic .NET", "SQL Server"],
+        "demoUrl": "#",
+        "githubUrl": "#"
+      },
+      {
+        "title": "E-commerce BanfieldGL",
+        "description": "Sitio corporativo productivo.",
+        "image": "/projects/project3.png",
+        "tags": ["Wix", "Javascript", "MongoDB"],
+        "demoUrl": "https://www.banfieldgl.com/",
+        "githubUrl": "#"
+      }
+    ]
+  },
+  "contact": {
+    "heading": "Contacto",
+    "subtitle": "¿Tienes un proyecto en mente o quieres colaborar? No dudes en contactarme. Estoy siempre abierto a nuevas oportunidades.",
+    "infoTitle": "Información de Contacto",
+    "emailLabel": "Email",
+    "phoneLabel": "Teléfono",
+    "locationLabel": "Ubicación",
+    "location": "Prov Bs. As., Argentina",
+    "usefulLinksTitle": "Links Útiles"
+  },
+  "footer": {
+    "rights": "Todos los derechos reservados."
+  },
+  "notFound": {
+    "title": "Página no encontrada",
+    "message": "Lo que buscas no existe o fue movido.",
+    "backHome": "Volver al inicio"
+  }
+}

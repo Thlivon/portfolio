@@ -1,42 +1,15 @@
 import { useState } from "react";
 import { cn } from "@/lib/utils";
+import { useTranslations } from "@/i18n/LanguageProvider";
 
-const skills = [
-  // Frontend
-  { name: "JavaScript", level: 90, category: "frontend" },
-  { name: "Desarrollo de Formularios", level: 90, category: "frontend" },
-  { name: "Wix Corvid (Velo by Wix)", level: 90, category: "frontend" },
-  { name: "React", level: 70, category: "frontend" },
-  { name: "TypeScript", level: 50, category: "frontend" },
-  { name: "Tailwind", level: 50, category: "frontend" },
-
-  // Backend / Bases de Datos
-  { name: "SQL Server", level: 100, category: "backend" },
-  { name: "Oracle", level: 100, category: "backend" },
-  { name: "MySQL", level: 90, category: "backend" },
-  { name: "Java", level: 80, category: "backend" },
-  { name: "Python", level: 80, category: "backend" },
-  { name: "Node.js", level: 80, category: "backend" },
-  { name: "Visual Basic .NET", level: 60, category: "backend" },
-  { name: "C", level: 45, category: "backend" },
-
-  // Tools
-  { name: "Git & GitHub", level: 100, category: "tools" },
-  { name: "Hibernate", level: 80, category: "tools" },
-  { name: "Spring Boot", level: 80, category: "tools" },
-  { name: "n8n-AI workflow automation", level: 70, category: "tools" },
-  { name: "Claude Code", level: 70, category: "tools" },
-  { name: ".NET Framework", level: 60, category: "tools" },
-  { name: "ASP.NET Core", level: 60, category: "tools" },
-  { name: "Windows Forms", level: 60, category: "tools" },
-];
-
-const categories = ["all", "frontend", "backend", "tools"];
+const CATEGORY_KEYS = ["all", "frontend", "backend", "tools"];
 
 export const SkillsSection = () => {
+  const { messages } = useTranslations();
+  const { skills } = messages;
   const [activeCategory, setActiveCategory] = useState("all");
 
-  const filteredSkills = skills.filter(
+  const filteredSkills = skills.items.filter(
     (skill) => activeCategory === "all" || skill.category === activeCategory
   );
 
@@ -44,30 +17,31 @@ export const SkillsSection = () => {
     <section id="skills" className="py-24 px-4 relative bg-secondary/30">
       <div className="container mx-auto max-w-5xl">
         <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
-          My <span className="text-primary"> Skills</span>
+          {skills.heading1} <span className="text-primary"> {skills.heading2}</span>
         </h2>
 
         <div className="flex flex-wrap justify-center gap-4 mb-12">
-          {categories.map((category, key) => (
+          {CATEGORY_KEYS.map((category) => (
             <button
-              key={key}
+              key={category}
               onClick={() => setActiveCategory(category)}
+              aria-pressed={activeCategory === category}
               className={cn(
-                "px-5 py-2 rounded-full transition-colors duration-300 capitalize",
+                "px-5 py-2 rounded-full transition-colors duration-300",
                 activeCategory === category
                   ? "bg-primary text-primary-foreground"
                   : "bg-secondary/70 text-forefround hover:bd-secondary"
               )}
             >
-              {category}
+              {skills.categories[category]}
             </button>
           ))}
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredSkills.map((skill, key) => (
+          {filteredSkills.map((skill) => (
             <div
-              key={key}
+              key={skill.name}
               className="bg-card p-6 rounded-lg shadow-xs card-hover"
             >
               <div className="text-left mb-4">
