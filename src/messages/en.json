@@ -199,12 +199,12 @@
         "githubUrl": "https://github.com/Thlivon/odoo_unla_2025_grupo_m"
       },
       {
-        "title": "Desktop App for Sales Management",
-        "description": "Desktop application to manage sales, customers and products.",
-        "image": "/projects/project2.png",
-        "tags": ["Visual Basic .NET", "SQL Server"],
+        "title": "WhatsApp Chat Analyzer",
+        "description": "Streamlit dashboard that analyzes WhatsApp chat exports: most active user, frequent emojis and word clouds.",
+        "image": "/projects/project4.png",
+        "tags": ["Python", "Streamlit", "pandas"],
         "demoUrl": "#",
-        "githubUrl": "#"
+        "githubUrl": "https://github.com/Thlivon/tp-ing-soft-iii"
       },
       {
         "title": "E-commerce BanfieldGL",
@@ -212,6 +212,14 @@
         "image": "/projects/project3.png",
         "tags": ["Wix", "Javascript", "MongoDB"],
         "demoUrl": "https://www.banfieldgl.com/",
+        "githubUrl": "#"
+      },
+      {
+        "title": "Desktop App for Sales Management",
+        "description": "Desktop application to manage sales, customers and products.",
+        "image": "/projects/project2.png",
+        "tags": ["Visual Basic .NET", "SQL Server"],
+        "demoUrl": "#",
         "githubUrl": "#"
       }
     ]
