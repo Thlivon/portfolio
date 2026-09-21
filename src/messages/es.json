@@ -199,12 +199,12 @@
         "githubUrl": "https://github.com/Thlivon/odoo_unla_2025_grupo_m"
       },
       {
-        "title": "Aplicación de escritorio para Gestión de Ventas",
-        "description": "Aplicación de escritorio para gestionar ventas, clientes y productos.",
-        "image": "/projects/project2.png",
-        "tags": ["Visual Basic .NET", "SQL Server"],
+        "title": "Analizador de Chats de WhatsApp",
+        "description": "Dashboard en Streamlit que analiza exports de chats de WhatsApp: usuario más activo, emojis frecuentes y nube de palabras.",
+        "image": "/projects/project4.png",
+        "tags": ["Python", "Streamlit", "pandas"],
         "demoUrl": "#",
-        "githubUrl": "#"
+        "githubUrl": "https://github.com/Thlivon/tp-ing-soft-iii"
       },
       {
         "title": "E-commerce BanfieldGL",
@@ -212,6 +212,14 @@
         "image": "/projects/project3.png",
         "tags": ["Wix", "Javascript", "MongoDB"],
         "demoUrl": "https://www.banfieldgl.com/",
+        "githubUrl": "#"
+      },
+      {
+        "title": "Aplicación de escritorio para Gestión de Ventas",
+        "description": "Aplicación de escritorio para gestionar ventas, clientes y productos.",
+        "image": "/projects/project2.png",
+        "tags": ["Visual Basic .NET", "SQL Server"],
+        "demoUrl": "#",
         "githubUrl": "#"
       }
     ]

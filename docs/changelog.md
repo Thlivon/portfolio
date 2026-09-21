@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-09-21 (4) — Nuevo proyecto: Analizador de Chats de WhatsApp
+
+Vía el comando `/agregar-proyecto`. Datos sacados del repo [Thlivon/tp-ing-soft-iii](https://github.com/Thlivon/tp-ing-soft-iii) (README + descripción del repo, sin necesidad de preguntarle al usuario nada extra): dashboard en Streamlit que analiza exports de chats de WhatsApp (usuario más activo, emojis frecuentes, horarios pico, nube de palabras), trabajo práctico de Ingeniería de Software III. Sin demo pública → `demoUrl: "#"`. Tags: Python, Streamlit, pandas. Imagen provista por el usuario en `public/projects/project4.png` (43 KB, no requiere compresión). Agregado a `projects.items` en `src/messages/es.json` y `en.json`. Verificado con `npm run build` y visualmente en `/es` y `/en`.
+- Ajuste posterior a pedido del usuario: descripción acortada (se sacaron los horarios pico y la mención a la materia del texto) y reordenado — el Analizador de WhatsApp pasó a ser el 2º proyecto, "Aplicación de escritorio para Gestión de Ventas" pasó al 4º lugar (antes 2º).
+
 ## 2026-09-21 (3) — README actualizado
 
 `README.md` reescrito para reflejar el estado actual: i18n ES/EN, stack real (React 19/Vite 6/Tailwind v4/react-router-dom v7), URL de producción en Vercel, estructura de carpetas con `i18n/`/`messages/`, mención a `CLAUDE.md` y a los comandos `/agregar-proyecto` y `/agregar-skill`. De paso corregido el link al repo (`portofolio` → `portfolio`, ítem 6 de `mejoras.md`) y el requisito de Node (v14 → v18, acorde a lo que usan las dependencias actuales).
