@@ -56,6 +56,11 @@
       "backend": "Backend",
       "tools": "Tools"
     },
+    "levels": {
+      "advanced": "Advanced",
+      "intermediate": "Intermediate",
+      "basic": "Basic"
+    },
     "items": [
       { "name": "JavaScript", "level": 90, "category": "frontend" },
       { "name": "Form Development", "level": 90, "category": "frontend" },

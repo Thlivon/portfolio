@@ -44,7 +44,7 @@ export const AboutSection = () => {
             {about.cards.map((card, index) => {
               const Icon = ICONS[index];
               return (
-                <div key={card.title} className="gradient-border p-6 card-hover">
+                <div key={card.title} className="bg-card p-6 rounded-lg shadow-xs card-hover">
                   <div className="flex items-start gap-4">
                     <div className="p-3 rounded-full bg-primary/10">
                       <Icon className="h-6 w-6 text-primary" />

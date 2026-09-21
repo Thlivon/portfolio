@@ -1,5 +1,66 @@
 # Changelog
 
+## 2026-09-21 (7) — Fix: bloque de Contacto desalineado (heading centrado vs filas a la izquierda)
+
+El usuario mandó una captura: en "Información de Contacto" el `<h3>` se veía centrado mientras las filas de íconos (Email/Teléfono/Ubicación) arrancaban más a la izquierda — parecía descentrado.
+
+### Causa raíz
+`index.css` define `#root { text-align: center; }` (default del template de Vite, heredado globalmente). El `<h3>` de esa sección es un bloque que ocupa todo el ancho de `w-full max-w-md`, así que el texto quedaba centrado dentro de esa caja completa. Las filas de íconos, en cambio, son contenedores `flex` — `text-align` no reposiciona sus items (el ícono circular no es texto), así que quedaban pegadas al borde izquierdo del bloque. Dos alineaciones distintas conviviendo en el mismo bloque. El resto de las secciones con texto en columna (`ExperienceSection.jsx`, `EducationSection.jsx`) ya tenían `text-left` explícito para neutralizar este mismo global — a `ContactSection.jsx` le faltaba, porque antes tenía un layout de 2 columnas (form al lado) donde no se notaba.
+
+### Qué se hizo
+- `ContactSection.jsx`: agregado `text-left` al wrapper `space-y-8 w-full max-w-md` de "Información de Contacto" (heading, filas de íconos y "Links Útiles" ahora comparten el mismo borde izquierdo).
+- Sacado `justify-center` de la fila de íconos de "Links Útiles" (quedaba centrada mientras el resto del bloque no) y de `space-y-6` (clase sin efecto — no es un contenedor flex, era un resto del layout anterior a 2 columnas).
+
+### Verificado
+`getBoundingClientRect()` contra el preview: heading, primera fila de íconos, heading "Links Útiles" y su fila de íconos comparten exactamente el mismo `left` (281px). `npm run build` sin errores; `npm run lint` con los mismos 5 errores preexistentes de siempre (no relacionados).
+
+## 2026-09-21 (6) — Plan de mejoras visuales, tandas 1/2/3 implementadas
+
+A pedido del usuario se armó un plan de mejoras visuales (vía Plan Mode) revisando cada componente y cruzándolo con `docs/mejoras.md`. El usuario aprobó el plan completo y eligió implementar las 3 tandas ahora, con placeholder para la imagen rota. Todo en `feat/mejoras-visuales`.
+
+### Tier 1 — Bugs visuales activos
+- `SkillsSection.jsx`: typo `text-forefround hover:bd-secondary` (clases inexistentes) → `text-foreground hover:bg-secondary`. Los botones de filtro inactivos ("Frontend"/"Backend"/"Herramientas") no tenían color de texto ni feedback de hover.
+- `HeroSection.jsx`: typo `max-2-2xl` → `max-w-2xl`. El párrafo del Hero no tenía ancho máximo.
+- `index.css`: `--primary` en `:root` (light) de `250 47% 60%` a `250 47% 48%` — el valor anterior daba ~3.5:1 de contraste sobre el fondo claro (no cumple AA 4.5:1 para texto). Dark mode no se tocó.
+- `ProjectsSection.jsx`: nuevo subcomponente `ProjectImage` con `onError` — si una imagen de proyecto no carga (caso actual: falta `public/projects/project2.png`), se muestra un placeholder (ícono `ImageOff` sobre `bg-secondary`) en vez del ícono de imagen rota del navegador. Cubre cualquier imagen faltante, no solo esta.
+
+### Tier 2 — Pulido por sección
+- Unificado el estilo de card en toda la página: `AboutSection.jsx` y `EducationSection.jsx` usaban la utilidad `gradient-border` (sin sombra, `rounded-md`) mientras Experience/Skills/Projects usan `bg-card ... shadow-xs` (con sombra, `rounded-lg`) — convivían dos sistemas visuales distintos. Ahora las 4 secciones usan `bg-card p-6 rounded-lg shadow-xs [card-hover]`. Al quedar sin uso, se borró la utilidad `gradient-border` de `index.css`.
+- `ExperienceSection.jsx`: los chips de "Clientes" y "Proyectos destacados" eran visualmente idénticos (mismo pill sólido). Ahora "Proyectos destacados" usa una variante outline (`border-primary/30 text-primary`, sin fondo) para diferenciarse de "Clientes" (que mantiene el pill sólido `bg-secondary`).
+- `SkillsSection.jsx`: la barra de nivel ahora muestra "Avanzado/Intermedio/Básico" (umbrales ≥80/≥60/<60) en vez del "%" numérico. Strings nuevos en `messages.skills.levels` (es/en), respetando la regla de i18n del proyecto.
+- `ContactSection.jsx`: con el form deshabilitado, el bloque de contacto quedaba centrado en un contenedor pensado para 2 columnas (`max-w-5xl`), con mucho aire a los costados en desktop. Se le agregó `max-w-md` al bloque de contenido.
+- `Footer.jsx`: el contenido pasó a estar envuelto en `container mx-auto max-w-5xl` (como el resto de las secciones) en vez de `px-4` a ancho completo, para compartir el mismo margen izquierdo/derecho en pantallas anchas.
+
+### Tier 3 — Consistencia de sistema
+- `index.css`: agregada una regla global `@media (prefers-reduced-motion: reduce)` que fuerza `animation-duration`/`transition-duration` a ~0 y `scroll-behavior: auto` — cubre `animate-bounce` del Hero, las estrellas/meteoros de `StarBackground` y los `fade-in` sin tocar cada componente por separado.
+- Revisado `max-w-4xl` del Hero vs `max-w-5xl` del resto de las secciones: se decidió dejarlo así — es intencional (línea de lectura más corta para el heading/CTA central del Hero) y no un bug.
+
+### Verificado
+Sin captura visual disponible en la sesión (panel de navegador oculto, screenshots devuelven canvas vacío). Verificado por layout/DOM real vía `javascript_tool` contra el preview (`npm run dev`): clases de los botones de filtro, labels de nivel de Skills ("Avanzado"×3/"Intermedio"/"Básico" para los primeros 5 ítems), `max-width: 672px` computado en el párrafo del Hero, `--primary` computado en light = `250 47% 48%` (con `.dark` sacada temporalmente vía JS) y en dark sin cambios, clases unificadas de cards en About/Education, chips diferenciados en Experience, ancho del bloque de Contacto, contenedor del Footer, y la card de `project2.png` mostrando el placeholder (`<svg>` de `ImageOff`) en vez de `<img>`. `npm run build` y `npm run lint` corridos: build sin errores, lint con los mismos 5 errores preexistentes de `ContactSection.jsx`/`vite.config.js` (no relacionados a este cambio).
+
+### Decisiones
+- No se tocó el formulario de contacto comentado ni los errores de ESLint que genera — deuda conocida, fuera de alcance.
+- El placeholder de imagen rota es genérico (cualquier imagen que falle carga el fallback), no una condición hardcodeada para `project2.png`.
+
+### Pendiente
+- Subir `public/projects/project2.png` real cuando el usuario tenga la captura (mientras tanto se ve el placeholder, no una imagen rota).
+- Ver `docs/mejoras.md` para lo que sigue fuera del alcance visual: SEO, performance, accesibilidad no visual, código muerto del form, extracción de datos a `src/data`.
+
+## 2026-09-21 (5) — Mejoras visuales: cards de proyectos, íconos de contacto, footer
+
+Pedido explícito del usuario de mejoras estéticas puntuales, en rama `feat/mejoras-visuales`.
+
+### Qué se hizo
+- **`ProjectsSection.jsx`**: los links de demo/GitHub de cada card quedaban a distinta altura entre sí porque el card se estiraba por el grid (todas las cards de una fila igualan altura) pero el contenido interno no era flex — el espacio extra quedaba como hueco debajo de los links en vez de empujarlos abajo. Se agregó `flex flex-col` al card y `flex flex-col flex-1` + `mt-auto` en la fila de links: ahora quedan siempre alineados contra el borde inferior del card, sin importar cuánto texto tenga la descripción.
+- **`ContactSection.jsx`**: las 3 filas de "Información de Contacto" (Email/Teléfono/Ubicación) usaban `items-start`, que alinea el ícono circular contra la parte superior del bloque de texto de dos líneas — visualmente el ícono quedaba "más arriba" que el centro del texto. Cambiado a `items-center` en las 3 filas.
+- **`Footer.jsx`**: tenía `py-12` y `pt-8` combinados en la misma clase (redundante, y quedaba muy alto para el contenido de una sola línea + botón). Reducido a `py-6`.
+
+### Verificado
+Sin captura visual disponible en la sesión (el panel del navegador quedó oculto y los screenshots devolvían un canvas vacío), se verificó por layout real vía `getBoundingClientRect()` en el preview (`npm run dev`): las 4 cards de proyectos quedan con los links a exactamente 24px (el padding del card) del borde inferior; en las 3 filas de contacto el centro vertical del ícono coincide exactamente con el centro del bloque de texto; el footer bajó de altura. `npm run lint` sigue con los mismos 5 errores preexistentes de `ContactSection.jsx` (form comentado, deuda conocida) y `vite.config.js` (globals de Node), no relacionados a este cambio.
+
+### Decisiones
+- No se tocó el layout general de Contacto (columna única centrada) ni se reactivó el formulario comentado — fuera del alcance pedido.
+
 ## 2026-09-21 (4) — Nuevo proyecto: Analizador de Chats de WhatsApp
 
 Vía el comando `/agregar-proyecto`. Datos sacados del repo [Thlivon/tp-ing-soft-iii](https://github.com/Thlivon/tp-ing-soft-iii) (README + descripción del repo, sin necesidad de preguntarle al usuario nada extra): dashboard en Streamlit que analiza exports de chats de WhatsApp (usuario más activo, emojis frecuentes, horarios pico, nube de palabras), trabajo práctico de Ingeniería de Software III. Sin demo pública → `demoUrl: "#"`. Tags: Python, Streamlit, pandas. Imagen provista por el usuario en `public/projects/project4.png` (43 KB, no requiere compresión). Agregado a `projects.items` en `src/messages/es.json` y `en.json`. Verificado con `npm run build` y visualmente en `/es` y `/en`.

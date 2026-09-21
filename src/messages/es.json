@@ -56,6 +56,11 @@
       "backend": "Backend",
       "tools": "Herramientas"
     },
+    "levels": {
+      "advanced": "Avanzado",
+      "intermediate": "Intermedio",
+      "basic": "Básico"
+    },
     "items": [
       { "name": "JavaScript", "level": 90, "category": "frontend" },
       { "name": "Desarrollo de Formularios", "level": 90, "category": "frontend" },

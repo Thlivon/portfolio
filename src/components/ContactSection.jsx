@@ -46,11 +46,11 @@ export const ContactSection = () => {
 
         {/*<div className="grid grid-cols-1 md:grid-cols-2 gap-12">*/}
         <div className="grid grid-cols-1 gap-12 justify-items-center">
-          <div className="space-y-8">
+          <div className="space-y-8 w-full max-w-md text-left">
             <h3 className="text-2xl font-semibold mb-6"> {contact.infoTitle}</h3>
 
-            <div className="space-y-6 justify-center">
-              <div className="flex items-start space-x-4">
+            <div className="space-y-6">
+              <div className="flex items-center space-x-4">
                 <div className="p-3 rounded-full bg-primary/10">
                   <Mail className="h-6 w-6 text-primary" />{" "}
                 </div>
@@ -64,7 +64,7 @@ export const ContactSection = () => {
                   </a>
                 </div>
               </div>
-              <div className="flex items-start space-x-4">
+              <div className="flex items-center space-x-4">
                 <div className="p-3 rounded-full bg-primary/10">
                   <Phone className="h-6 w-6 text-primary" />{" "}
                 </div>
@@ -78,7 +78,7 @@ export const ContactSection = () => {
                   </a>
                 </div>
               </div>
-              <div className="flex items-start space-x-4">
+              <div className="flex items-center space-x-4">
                 <div className="p-3 rounded-full bg-primary/10">
                   <MapPin className="h-6 w-6 text-primary" />{" "}
                 </div>
@@ -91,7 +91,7 @@ export const ContactSection = () => {
 
             <div className="pt-8">
               <h4 className="font-medium mb-4">{contact.usefulLinksTitle}</h4>
-              <div className="flex space-x-4 justify-center">
+              <div className="flex space-x-4">
                 <a
                   href="https://www.linkedin.com/in/thomas-livon-852b84203/"
                   target="_blank"

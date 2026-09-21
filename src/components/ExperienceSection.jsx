@@ -65,7 +65,7 @@ export const ExperienceSection = () => {
                     {exp.projects.map((p) => (
                       <span
                         key={p}
-                        className="px-2 py-1 text-xs font-medium border rounded-full bg-secondary text-secondary-foreground"
+                        className="px-2 py-1 text-xs font-medium border border-primary/30 rounded-full text-primary"
                       >
                         {p}
                       </span>

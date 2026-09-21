@@ -21,7 +21,7 @@ export const EducationSection = () => {
             {education.education.map((item) => (
               <div
                 key={item.title}
-                className="gradient-border p-6 card-hover bg-card"
+                className="bg-card p-6 rounded-lg shadow-xs card-hover"
               >
                 <p className="text-sm text-muted-foreground mb-1">
                   {item.period}
@@ -38,7 +38,7 @@ export const EducationSection = () => {
               <Languages className="h-6 w-6 text-primary" />
               {education.languagesTitle}
             </h3>
-            <div className="gradient-border p-6 bg-card">
+            <div className="bg-card p-6 rounded-lg shadow-xs">
               <ul className="space-y-2">
                 {education.languages.map((lang) => (
                   <li key={lang.name} className="flex justify-between">
@@ -58,7 +58,7 @@ export const EducationSection = () => {
             {education.courses.map((course) => (
               <div
                 key={course.title}
-                className="gradient-border p-6 card-hover bg-card"
+                className="bg-card p-6 rounded-lg shadow-xs card-hover"
               >
                 <p className="text-sm text-muted-foreground mb-1">
                   {course.date} · {course.platform}

@@ -4,6 +4,12 @@ import { useTranslations } from "@/i18n/LanguageProvider";
 
 const CATEGORY_KEYS = ["all", "frontend", "backend", "tools"];
 
+const levelKey = (level) => {
+  if (level >= 80) return "advanced";
+  if (level >= 60) return "intermediate";
+  return "basic";
+};
+
 export const SkillsSection = () => {
   const { messages } = useTranslations();
   const { skills } = messages;
@@ -30,7 +36,7 @@ export const SkillsSection = () => {
                 "px-5 py-2 rounded-full transition-colors duration-300",
                 activeCategory === category
                   ? "bg-primary text-primary-foreground"
-                  : "bg-secondary/70 text-forefround hover:bd-secondary"
+                  : "bg-secondary/70 text-foreground hover:bg-secondary"
               )}
             >
               {skills.categories[category]}
@@ -56,7 +62,7 @@ export const SkillsSection = () => {
 
               <div className="text-right mt-1">
                 <span className="text-sm text-muted-foreground">
-                  {skill.level}%
+                  {skills.levels[levelKey(skill.level)]}
                 </span>
               </div>
             </div>
