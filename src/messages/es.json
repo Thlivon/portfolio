@@ -194,18 +194,20 @@
     "heading2": "Destacados",
     "subtitle": "Aquí están algunos de mis proyectos más recientes.",
     "githubCta": "Mi Github",
+    "productiveBadge": "Sitio productivo",
     "items": [
       {
         "title": "Reemplazador de Archivos con IA",
-        "description": "Sitio productivo: subís un documento, la IA detecta sus campos variables, completás los valores y descargás el archivo regenerado con el mismo formato. Soporta PDF, DOCX y XLSX. Desarrollado con Next.js, TypeScript, PostgreSQL (Supabase), Prisma y Google Gemini.",
+        "description": "Sitio productivo: subís un documento, la IA detecta sus campos variables, completás los valores y descargás el archivo regenerado con el mismo formato",
         "image": "/projects/project5.png",
         "tags": ["Next.js", "TypeScript", "PostgreSQL", "Prisma", "Google Gemini"],
         "demoUrl": "https://filereplacer.tl256.com/es",
-        "githubUrl": "#"
+        "githubUrl": "#",
+        "productive": true
       },
       {
         "title": "Módulo de Administración de Inmobiliaria",
-        "description": "Módulo de Odoo 18 para la administración de inmobiliarias.",
+        "description": "Módulo de Odoo 18 desarrollado en equipo para gestionar propiedades inmobiliarias: alta de inmuebles, seguimiento de clientes y estado de cada operación.",
         "image": "/projects/project1.png",
         "tags": ["Odoo 18", "Python", "PostgreSQL"],
         "demoUrl": "#",
@@ -213,11 +215,12 @@
       },
       {
         "title": "E-commerce BanfieldGL",
-        "description": "Sitio corporativo productivo.",
+        "description": "Tienda online productiva de electrodomésticos y tecnología: catálogo de productos, promociones, carrito de compras y checkout con pasarela de pago.",
         "image": "/projects/project3.png",
         "tags": ["Wix", "Javascript", "MongoDB"],
         "demoUrl": "https://www.banfieldgl.com/",
-        "githubUrl": "#"
+        "githubUrl": "#",
+        "productive": true
       },
       {
         "title": "Analizador de Chats de WhatsApp",
@@ -229,7 +232,7 @@
       },
       {
         "title": "Aplicación de escritorio para Gestión de Ventas",
-        "description": "Aplicación de escritorio para gestionar ventas, clientes y productos.",
+        "description": "Aplicación de escritorio en VB.NET con arquitectura en capas (BLL, DAL, Entidades) para gestionar ventas, clientes, productos y stock de un comercio.",
         "image": "/projects/project2.png",
         "tags": ["Visual Basic .NET", "SQL Server"],
         "demoUrl": "#",

@@ -43,8 +43,13 @@ export const ProjectsSection = () => {
           {projects.items.map((project) => (
             <div
               key={project.title}
-              className="group bg-card rounded-lg overflow-hidden shadow-xs card-hover flex flex-col"
+              className="group relative bg-card rounded-lg overflow-hidden shadow-xs card-hover flex flex-col"
             >
+              {project.productive && (
+                <span className="absolute top-3 right-3 z-10 px-3 py-1 text-xs font-medium rounded-full bg-primary text-primary-foreground shadow-sm">
+                  {projects.productiveBadge}
+                </span>
+              )}
               <div className="h-48 overflow-hidden">
                 <ProjectImage
                   src={import.meta.env.BASE_URL + project.image.replace(/^\//, "")}

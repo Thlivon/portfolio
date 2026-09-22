@@ -194,18 +194,20 @@
     "heading2": "Projects",
     "subtitle": "Here are some of my most recent projects.",
     "githubCta": "My Github",
+    "productiveBadge": "Production site",
     "items": [
       {
         "title": "AI File Replacer",
-        "description": "Production site: upload a document, the AI detects its variable fields, fill in the values and download the regenerated file with the same format. Supports PDF, DOCX and XLSX. Built with Next.js, TypeScript, PostgreSQL (Supabase), Prisma and Google Gemini.",
+        "description": "Production site: upload a document, the AI detects its variable fields, fill in the values and download the regenerated file with the same format",
         "image": "/projects/project5.png",
         "tags": ["Next.js", "TypeScript", "PostgreSQL", "Prisma", "Google Gemini"],
         "demoUrl": "https://filereplacer.tl256.com/es",
-        "githubUrl": "#"
+        "githubUrl": "#",
+        "productive": true
       },
       {
         "title": "Real Estate Management Module",
-        "description": "Odoo 18 module for real estate agency management.",
+        "description": "Odoo 18 module built with a team to manage real estate properties: property listings, client tracking and the status of each ongoing operation.",
         "image": "/projects/project1.png",
         "tags": ["Odoo 18", "Python", "PostgreSQL"],
         "demoUrl": "#",
@@ -213,11 +215,12 @@
       },
       {
         "title": "E-commerce BanfieldGL",
-        "description": "Production corporate website.",
+        "description": "Production online store for appliances and tech gadgets: product catalog, promotions, shopping cart and checkout integrated with a payment gateway.",
         "image": "/projects/project3.png",
         "tags": ["Wix", "Javascript", "MongoDB"],
         "demoUrl": "https://www.banfieldgl.com/",
-        "githubUrl": "#"
+        "githubUrl": "#",
+        "productive": true
       },
       {
         "title": "WhatsApp Chat Analyzer",
@@ -229,7 +232,7 @@
       },
       {
         "title": "Desktop App for Sales Management",
-        "description": "Desktop application to manage sales, customers and products.",
+        "description": "Desktop app built in VB.NET with a layered architecture (BLL, DAL, Entities) to manage sales, customers, products and stock for a small business.",
         "image": "/projects/project2.png",
         "tags": ["Visual Basic .NET", "SQL Server"],
         "demoUrl": "#",

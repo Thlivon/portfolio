@@ -1,5 +1,21 @@
 # Changelog
 
+## 2026-09-22 (9) — Descripciones de proyectos parejas, badge "Sitio productivo" y Contacto centrado
+
+A pedido del usuario, con captura de la sección Contacto marcando qué centrar.
+
+### Qué se hizo
+- `messages/es.json` / `messages/en.json`: descripción de "Reemplazador de Archivos con IA" reducida a una sola oración (sacó la mención de PDF/DOCX/XLSX y el stack, que ya está en los `tags`). Reescritas las descripciones de "Módulo de Administración de Inmobiliaria", "E-commerce BanfieldGL" y "Aplicación de escritorio para Gestión de Ventas" a un largo similar (~145-155 caracteres) verificando contenido real: repos de GitHub (`odoo_unla_2025_grupo_m`, `gestion-ventas-vbnet`) y `banfieldgl.com` (tienda Wix de electrodomésticos).
+- `messages/*.json`: nueva key `projects.productiveBadge` ("Sitio productivo" / "Production site") y flag `productive: true` en los items de "Reemplazador de Archivos con IA" y "E-commerce BanfieldGL" (los otros tres no son sitios web productivos: módulo Odoo, dashboard local, app de escritorio).
+- `ProjectsSection.jsx`: card con `relative` + badge `absolute top-3 right-3` (`rounded-full`, `bg-primary`) que solo se renderiza si `project.productive` es true.
+- `ContactSection.jsx`: cambiado `text-left` → `text-center` en el wrapper de "Información de Contacto", y agregado `justify-center` a las 4 filas `flex` (los 3 íconos de contacto + los íconos de "Links Útiles") para que todo el bloque quede centrado de forma consistente. Nota: esto revierte a propósito el fix de `text-left` de la entrada (7) de este changelog — ahí el pedido era alinear todo a la izquierda; ahora el pedido explícito del usuario es centrar todo el bloque, y esta vez heading + filas comparten la misma alineación (no queda la mezcla inconsistente que motivó el fix anterior).
+
+### Verificado
+Contenido y estilos verificados vía DOM/`getComputedStyle` en preview `/portfolio/es` y `/portfolio/en` (el screenshot del Browser pane devolvió negro sólido en esta sesión, aparentemente un problema de captura no relacionado con el cambio). Badge "Sitio productivo"/"Production site" aparece solo en los 2 proyectos correctos, con `position: absolute; top: 12px; right: 12px; border-radius: 9999px`. Contenedor de Contacto con `text-align: center` y filas con `justify-content: center`. `npm run lint`: mismos 5 errores preexistentes de `ContactSection.jsx` (form comentado, deuda conocida) y `vite.config.js` (no relacionados a este cambio).
+
+### Pendiente
+Ninguno.
+
 ## 2026-09-22 (8) — Agrega proyecto "Reemplazador de Archivos con IA" (File Replacer SaaS)
 
 Nuevo proyecto vía `/agregar-proyecto`, a partir del README del repo privado `file-replacer-saas` (local en `Cursos Progamacion/Claude/file-replacer-saas`).
