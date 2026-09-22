@@ -196,6 +196,14 @@
     "githubCta": "My Github",
     "items": [
       {
+        "title": "AI File Replacer",
+        "description": "Production site: upload a document, the AI detects its variable fields, fill in the values and download the regenerated file with the same format. Supports PDF, DOCX and XLSX. Built with Next.js, TypeScript, PostgreSQL (Supabase), Prisma and Google Gemini.",
+        "image": "/projects/project5.png",
+        "tags": ["Next.js", "TypeScript", "PostgreSQL", "Prisma", "Google Gemini"],
+        "demoUrl": "https://filereplacer.tl256.com/es",
+        "githubUrl": "#"
+      },
+      {
         "title": "Real Estate Management Module",
         "description": "Odoo 18 module for real estate agency management.",
         "image": "/projects/project1.png",
@@ -204,20 +212,20 @@
         "githubUrl": "https://github.com/Thlivon/odoo_unla_2025_grupo_m"
       },
       {
-        "title": "WhatsApp Chat Analyzer",
-        "description": "Streamlit dashboard that analyzes WhatsApp chat exports: most active user, frequent emojis and word clouds.",
-        "image": "/projects/project4.png",
-        "tags": ["Python", "Streamlit", "pandas"],
-        "demoUrl": "#",
-        "githubUrl": "https://github.com/Thlivon/tp-ing-soft-iii"
-      },
-      {
         "title": "E-commerce BanfieldGL",
         "description": "Production corporate website.",
         "image": "/projects/project3.png",
         "tags": ["Wix", "Javascript", "MongoDB"],
         "demoUrl": "https://www.banfieldgl.com/",
         "githubUrl": "#"
+      },
+      {
+        "title": "WhatsApp Chat Analyzer",
+        "description": "Streamlit dashboard that analyzes WhatsApp chat exports: most active user, frequent emojis and word clouds.",
+        "image": "/projects/project4.png",
+        "tags": ["Python", "Streamlit", "pandas"],
+        "demoUrl": "#",
+        "githubUrl": "https://github.com/Thlivon/tp-ing-soft-iii"
       },
       {
         "title": "Desktop App for Sales Management",

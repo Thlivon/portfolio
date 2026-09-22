@@ -196,6 +196,14 @@
     "githubCta": "Mi Github",
     "items": [
       {
+        "title": "Reemplazador de Archivos con IA",
+        "description": "Sitio productivo: subís un documento, la IA detecta sus campos variables, completás los valores y descargás el archivo regenerado con el mismo formato. Soporta PDF, DOCX y XLSX. Desarrollado con Next.js, TypeScript, PostgreSQL (Supabase), Prisma y Google Gemini.",
+        "image": "/projects/project5.png",
+        "tags": ["Next.js", "TypeScript", "PostgreSQL", "Prisma", "Google Gemini"],
+        "demoUrl": "https://filereplacer.tl256.com/es",
+        "githubUrl": "#"
+      },
+      {
         "title": "Módulo de Administración de Inmobiliaria",
         "description": "Módulo de Odoo 18 para la administración de inmobiliarias.",
         "image": "/projects/project1.png",
@@ -204,20 +212,20 @@
         "githubUrl": "https://github.com/Thlivon/odoo_unla_2025_grupo_m"
       },
       {
-        "title": "Analizador de Chats de WhatsApp",
-        "description": "Dashboard en Streamlit que analiza exports de chats de WhatsApp: usuario más activo, emojis frecuentes y nube de palabras.",
-        "image": "/projects/project4.png",
-        "tags": ["Python", "Streamlit", "pandas"],
-        "demoUrl": "#",
-        "githubUrl": "https://github.com/Thlivon/tp-ing-soft-iii"
-      },
-      {
         "title": "E-commerce BanfieldGL",
         "description": "Sitio corporativo productivo.",
         "image": "/projects/project3.png",
         "tags": ["Wix", "Javascript", "MongoDB"],
         "demoUrl": "https://www.banfieldgl.com/",
         "githubUrl": "#"
+      },
+      {
+        "title": "Analizador de Chats de WhatsApp",
+        "description": "Dashboard en Streamlit que analiza exports de chats de WhatsApp: usuario más activo, emojis frecuentes y nube de palabras.",
+        "image": "/projects/project4.png",
+        "tags": ["Python", "Streamlit", "pandas"],
+        "demoUrl": "#",
+        "githubUrl": "https://github.com/Thlivon/tp-ing-soft-iii"
       },
       {
         "title": "Aplicación de escritorio para Gestión de Ventas",
