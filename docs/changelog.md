@@ -1,5 +1,21 @@
 # Changelog
 
+## 2026-09-22 (8) — Agrega proyecto "Reemplazador de Archivos con IA" (File Replacer SaaS)
+
+Nuevo proyecto vía `/agregar-proyecto`, a partir del README del repo privado `file-replacer-saas` (local en `Cursos Progamacion/Claude/file-replacer-saas`).
+
+### Qué se hizo
+- `messages/es.json` y `messages/en.json`: nuevo objeto al inicio de `projects.items` (título, descripción con foco en "sitio productivo" + stack, tags, `demoUrl: https://filereplacer.tl256.com/es`, `githubUrl: "#"` por ser repo privado).
+- Reordenado `projects.items` en ambos idiomas al orden pedido por el usuario: File Replacer, Módulo de Administración de Inmobiliaria, E-commerce BanfieldGL, Analizador de Chats de WhatsApp, Aplicación de escritorio .NET.
+- `public/projects/project5.png` ya estaba copiada por el usuario (38 KB, no requiere compresión).
+- No se tocó `ProjectsSection.jsx` (itera `projects.items` dinámicamente).
+
+### Verificado
+`npm run build` sin errores. Preview visual en `/portfolio/es` y `/portfolio/en`: card nueva en primera posición con el orden correcto, imagen `project5.png` carga (`naturalWidth > 0`), link de demo apunta a `https://filereplacer.tl256.com/es`.
+
+### Pendiente
+Ninguno.
+
 ## 2026-09-21 (7) — Fix: bloque de Contacto desalineado (heading centrado vs filas a la izquierda)
 
 El usuario mandó una captura: en "Información de Contacto" el `<h3>` se veía centrado mientras las filas de íconos (Email/Teléfono/Ubicación) arrancaban más a la izquierda — parecía descentrado.
