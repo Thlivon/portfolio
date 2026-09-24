@@ -1,5 +1,24 @@
 # Changelog
 
+## 2026-09-24 (11) — Documentos privados fuera de git
+
+### Qué se hizo
+- `messages/es.json` / `messages/en.json`: materias aprobadas de la Licenciatura en Sistemas actualizadas de 28 a 31 (de 36). En el CV se hizo el mismo cambio.
+- `.gitignore`: agregados `docs/*.docx` y `docs/*.pdf`. El CV (con DNI y domicilio) aparecía como archivo sin trackear y podía commitearse por error.
+- CV local (no versionado) actualizado: la sección Proyectos quedó con Reemplazador de Archivos con IA y E-commerce BanfieldGL más un link al portfolio. En Experiencia > Banfield GL se agregó la migración de Wix a Tienda Nube, hecha como freelance en febrero de 2026.
+- CV nuevo (`docs/Thomas-Livon-CV.docx` / `.pdf`, local; el anterior quedó como `Thomas Livon Stetic (CV) - anterior.docx`): reescrito según el estándar actual para CV de desarrolladores. Queda en una página y una sola columna, pensado para pasar filtros ATS. Sin DNI, domicilio ni fecha de nacimiento. Skills agrupadas por categoría y bullets de experiencia con métricas reales (fórmula XYZ): 9.000 usuarios, 10 módulos, deploy de 60 a 1 minuto, 10 h semanales ahorradas.
+- En Proyectos del CV, BanfieldGL (que ya estaba en Experiencia) se reemplazó por el Analizador de Chats de WhatsApp, un proyecto académico. Inglés: B1.
+- Ajustes de formato para ATS:
+  - En Experiencia, cada empresa aparece una vez con sus puestos debajo, cada uno con su propio rango de fechas. Banfield GL quedó con dos puestos: Freelance (feb 2026) y 2021–2023.
+  - El PDF tiene título y autor cargados.
+  - Nombre de archivo sin espacios: `Thomas-Livon-CV`.
+  - "Velo by Wix" unificado en todo el CV.
+  - El Perfil bajó a menos de 50 palabras.
+
+### Pendiente
+- Cuando haya un proyecto nuevo, reemplazar el Analizador de WhatsApp en el CV.
+- Agregar al bullet del Reemplazador de Archivos con IA las métricas de uso (usuarios, documentos) cuando existan.
+
 ## 2026-09-24 (10) — E-commerce BanfieldGL migrado a Tienda Nube
 
 ### Qué se hizo

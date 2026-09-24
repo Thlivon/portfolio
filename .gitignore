@@ -22,3 +22,7 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Documentos privados (CV con DNI y domicilio)
+docs/*.docx
+docs/*.pdf
