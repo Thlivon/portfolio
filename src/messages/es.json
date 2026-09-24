@@ -215,9 +215,9 @@
       },
       {
         "title": "E-commerce BanfieldGL",
-        "description": "Tienda online productiva de electrodomésticos y tecnología: catálogo de productos, promociones, carrito de compras y checkout con pasarela de pago.",
+        "description": "Tienda online en Tienda Nube con sistema de garantías a medida: backoffice de ventas y productos, consulta pública de garantías y reclamos con comprobante PDF.",
         "image": "/projects/project3.png",
-        "tags": ["Wix", "Javascript", "MongoDB"],
+        "tags": ["Tienda Nube", "JavaScript", "Google Tag Manager", "Apps Script"],
         "demoUrl": "https://www.banfieldgl.com/",
         "githubUrl": "#",
         "productive": true

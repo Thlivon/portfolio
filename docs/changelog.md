@@ -1,5 +1,14 @@
 # Changelog
 
+## 2026-09-24 (10) — E-commerce BanfieldGL migrado a Tienda Nube
+
+### Qué se hizo
+- `messages/es.json` / `messages/en.json`: descripción y `tags` de "E-commerce BanfieldGL" actualizados según el repo privado `Thlivon/banfieldgl-tiendanube`: la tienda ahora corre en Tienda Nube y lo desarrollado a medida es el sistema de garantías (backoffice de ventas/productos, consulta pública de garantías, reclamos con comprobante PDF), inyectado vía Google Tag Manager con backend en Apps Script y deploy por GitHub Actions. Tags: Tienda Nube, JavaScript, Google Tag Manager, Apps Script (sale Wix; MongoDB y GitHub Actions se descartaron a pedido del usuario).
+- `public/projects/project3.png`: captura nueva del sitio (reemplazada por el usuario; se sirve desde la misma ruta, sin cambios de código).
+
+### Decisiones
+- No se menciona Google Sheets como base de datos, a pedido del usuario.
+
 ## 2026-09-22 (9) — Descripciones de proyectos parejas, badge "Sitio productivo" y Contacto centrado
 
 A pedido del usuario, con captura de la sección Contacto marcando qué centrar.

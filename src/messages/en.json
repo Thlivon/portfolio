@@ -215,9 +215,9 @@
       },
       {
         "title": "E-commerce BanfieldGL",
-        "description": "Production online store for appliances and tech gadgets: product catalog, promotions, shopping cart and checkout integrated with a payment gateway.",
+        "description": "Tienda Nube online store with a custom warranty system: sales and product back office, public warranty lookup and claims with PDF receipts.",
         "image": "/projects/project3.png",
-        "tags": ["Wix", "Javascript", "MongoDB"],
+        "tags": ["Tienda Nube", "JavaScript", "Google Tag Manager", "Apps Script"],
         "demoUrl": "https://www.banfieldgl.com/",
         "githubUrl": "#",
         "productive": true
