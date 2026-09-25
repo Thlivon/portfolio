@@ -150,10 +150,12 @@
 
 @utility container {
   margin-inline: auto;
-  padding-inline: 2rem;
+  /* en mobile las secciones ya suman px-4: con 2rem más el texto quedaba en ~280px */
+  padding-inline: 0.5rem;
 
   @media (width >= 640px) {
     max-width: 640px;
+    padding-inline: 2rem;
   }
   @media (width >= 768px) {
     max-width: 768px;

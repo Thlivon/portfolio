@@ -74,7 +74,7 @@ export const Navbar = () => {
       </a>
       <div
         className={cn(
-          "transition-all duration-300",
+          "px-4 sm:px-0 transition-all duration-300",
           isScrolled ? "py-3 bg-background/80 backdrop-blur-md shadow-xs" : "py-5"
         )}
       >

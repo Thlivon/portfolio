@@ -34,6 +34,13 @@ Rama `feat/mejoras-ux-perf`.
 - Redes duplicadas en Hero/Contacto/Footer → `SocialLinks.jsx`; etiquetas en `messages.social` (regla de CLAUDE.md).
 - Barra de progreso de Educación sin animación (corría fuera de pantalla); keyframe `grow` eliminado al no tener más usos.
 
+### Accesibilidad y mobile — corregido
+- Auditoría de contraste automática sobre todo el texto en ambos temas: `--muted-foreground` en claro 47% → 38% (estaba en 4.34–4.49:1, ahora ≥ 4.5); badge del hero con texto `foreground`. Resultado: 0 textos debajo de AA.
+- Sin links/botones sin nombre, imágenes sin `alt`, saltos de encabezado ni IDs duplicados.
+- Áreas táctiles de 24px (WCAG 2.5.8) en links del navbar y "Ver sitio"/"Código".
+- `container` con `padding-inline` de 0.5rem en mobile (antes 2rem + el `px-4` de cada sección dejaban ~280px de texto); timeline de Experiencia con menos sangría en mobile.
+- Alto total de la página: desktop 7.793px → 6.722px; mobile 14.765px → 11.344px.
+
 ### Decisiones
 - Pre-render con un script propio (~90 líneas) en vez de `vite-react-ssg`/Next: el sitio tiene 2 páginas y ya usa react-router; no justifica un framework.
 - Contenido que requiere datos reales **no se inventó**: logros con métricas en Experiencia, foto, testimonios, páginas por proyecto, CV en PDF sin datos sensibles. Quedan pendientes.

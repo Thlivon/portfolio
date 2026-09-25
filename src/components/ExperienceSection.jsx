@@ -37,12 +37,12 @@ export const ExperienceSection = ({ number }) => {
             const visible = exp.bullets.slice(0, VISIBLE_BULLETS);
             const hidden = exp.bullets.slice(VISIBLE_BULLETS);
             return (
-              <li key={exp.company} className="relative pl-8">
+              <li key={exp.company} className="relative pl-6 md:pl-8">
                 <span
                   aria-hidden="true"
                   className={`absolute -left-[9px] top-2 h-4 w-4 rounded-full border-2 border-primary ${i === 0 ? "bg-primary" : "bg-background"}`}
                 />
-                <article className="bg-card border border-border p-6 md:p-8 rounded-xl shadow-xs">
+                <article className="bg-card border border-border p-5 md:p-8 rounded-xl shadow-xs">
                   <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-2 mb-4">
                     <div>
                       <h3 className="text-xl font-semibold">{exp.role}</h3>
