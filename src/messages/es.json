@@ -299,6 +299,11 @@
     "copied": "¡Email copiado!",
     "socialTitle": "Redes"
   },
+  "social": {
+    "linkedin": "LinkedIn",
+    "github": "GitHub",
+    "email": "Email"
+  },
   "footer": {
     "rights": "Todos los derechos reservados."
   },

@@ -40,12 +40,18 @@ export const Navbar = () => {
 
   useEffect(() => {
     if (!isMenuOpen) return;
-    const onKey = (e) => e.key === "Escape" && setIsMenuOpen(false);
+    const close = () => setIsMenuOpen(false);
+    const onKey = (e) => e.key === "Escape" && close();
+    // desde lg el overlay se oculta por CSS: sin esto el scroll quedaría bloqueado (p. ej. al rotar una tablet)
+    const desktop = window.matchMedia("(min-width: 64rem)");
+    const onDesktop = (e) => e.matches && close();
     document.body.style.overflow = "hidden";
     window.addEventListener("keydown", onKey);
+    desktop.addEventListener("change", onDesktop);
     return () => {
       document.body.style.overflow = "";
       window.removeEventListener("keydown", onKey);
+      desktop.removeEventListener("change", onDesktop);
     };
   }, [isMenuOpen]);
 

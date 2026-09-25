@@ -42,7 +42,7 @@ export const EducationSection = ({ number }) => {
                       aria-label={education.progressLabel}
                     >
                       <div
-                        className="h-full bg-primary rounded-full origin-left animate-grow"
+                        className="h-full bg-primary rounded-full"
                         style={{ width: `${(item.progress.done / item.progress.total) * 100}%` }}
                       />
                     </div>

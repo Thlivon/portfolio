@@ -5,7 +5,7 @@
 Rama `feat/mejoras-ux-perf`.
 
 ### Qué se hizo
-- **Bugs (1.1–1.7)**: keyframe `grow` definido; `animationDelay` de meteoros con unidad (y `opacity: 0` base para que no se vean quietos durante el delay); hero corto y `min-h-svh` (el indicador ya no pisa el CTA; se oculta en mobile y en pantallas bajas); navbar desktop desde `lg` con 6 links `whitespace-nowrap` ("Inicio" sacado, el logo cumple esa función); estrellas solo se regeneran si cambia el ancho (con debounce); placeholder para proyectos sin imagen; lint sin errores (form muerto borrado + `globals.node` para `vite.config.js`/`scripts`).
+- **Bugs (1.1–1.7)**: barras de skills reemplazadas (el keyframe `grow` no existía); `animationDelay` de meteoros con unidad (y `opacity: 0` base para que no se vean quietos durante el delay); hero corto y `min-h-svh` (el indicador ya no pisa el CTA; se oculta en mobile y en pantallas bajas); navbar desktop desde `lg` con 6 links `whitespace-nowrap` ("Inicio" sacado, el logo cumple esa función); estrellas solo se regeneran si cambia el ancho (con debounce); placeholder para proyectos sin imagen; lint sin errores (form muerto borrado + `globals.node` para `vite.config.js`/`scripts`).
 - **Orden de secciones**: Hero → Proyectos → Experiencia → Skills → Sobre mí → Educación → Contacto, con encabezado común `SectionHeading` ("01 · Proyectos"), fondos alternados.
 - **Hero**: badge "Abierto a nuevas oportunidades", rol visible, descripción de 1 línea (83 → 25 palabras), CTAs "Ver proyectos" + "Descargar CV", íconos de LinkedIn/GitHub/email.
 - **Proyectos**: card destacada a 2 columnas (FileReplacer), botones con texto "Ver sitio"/"Código", título clickeable, imagen 2:1 lazy con `width/height`, badge arriba a la izquierda.
@@ -24,6 +24,15 @@ Rama `feat/mejoras-ux-perf`.
 - **CI**: `.github/workflows/ci.yml` (lint + build).
 - **Copy**: español unificado a voseo ("Desplazate", "Contactame", "buscás"); "n8n-AI workflow automation" → "n8n (automatización con IA)".
 - Docs: CLAUDE.md (pre-render, reglas de SSR, utilidades, profile.js), README, y comandos `/agregar-proyecto` (WebP, `productive`) y `/agregar-skill` (niveles cualitativos).
+
+### Revisión de código (sobre la misma rama) — corregido
+- Año del footer: `suppressHydrationWarning` (el HTML pre-renderizado trae el año del build; en año nuevo rompía la hidratación).
+- Menú mobile abierto + viewport que pasa a `lg` (rotar tablet) dejaba el scroll bloqueado sin botón visible: ahora se cierra con `matchMedia`.
+- `prerender.js`: replacers como función (un `$&`/`$'` en el contenido corrompía el HTML); el escape `<` del JSON-LD no se aplicaba (`"<"` → `"\\u003c"`); la shell (`/` y 404s) ya no declara canonical/og:url/hreflang a `/es`; `x-default` → `/es`; usa `PROFILE` en vez de URLs duplicadas.
+- "Copiar email": timeout único y limpiado al desmontar.
+- `theme-color` sigue al tema (script inline + `ThemeToggle`).
+- Redes duplicadas en Hero/Contacto/Footer → `SocialLinks.jsx`; etiquetas en `messages.social` (regla de CLAUDE.md).
+- Barra de progreso de Educación sin animación (corría fuera de pantalla); keyframe `grow` eliminado al no tener más usos.
 
 ### Decisiones
 - Pre-render con un script propio (~90 líneas) en vez de `vite-react-ssg`/Next: el sitio tiene 2 páginas y ya usa react-router; no justifica un framework.

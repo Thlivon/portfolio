@@ -1,16 +1,11 @@
-import { ArrowDown, ArrowRight, Download, Github, Linkedin, Mail } from "lucide-react";
+import { ArrowDown, ArrowRight, Download } from "lucide-react";
 import { useTranslations } from "@/i18n/LanguageProvider";
 import { PROFILE } from "@/lib/profile";
+import { SocialLinks } from "@/components/SocialLinks";
 
 export const HeroSection = () => {
   const { messages } = useTranslations();
   const { hero } = messages;
-
-  const socials = [
-    { href: PROFILE.linkedin, label: "LinkedIn", Icon: Linkedin },
-    { href: PROFILE.github, label: "GitHub", Icon: Github },
-    { href: `mailto:${PROFILE.email}`, label: PROFILE.email, Icon: Mail },
-  ];
 
   return (
     <section
@@ -46,21 +41,12 @@ export const HeroSection = () => {
           </a>
         </div>
 
-        <div className="flex justify-center gap-2 opacity-0 animate-fade-in-delay-4">
-          {socials.map(({ href, label, Icon }) => (
-            <a
-              key={label}
-              href={href}
-              aria-label={label}
-              title={label}
-              target={href.startsWith("http") ? "_blank" : undefined}
-              rel="noopener noreferrer"
-              className="p-2 rounded-full text-foreground/70 hover:text-primary hover:bg-primary/10 transition-colors"
-            >
-              <Icon size={22} aria-hidden="true" />
-            </a>
-          ))}
-        </div>
+        <SocialLinks
+          withEmail
+          size={22}
+          className="justify-center gap-2 opacity-0 animate-fade-in-delay-4"
+          linkClassName="p-2 rounded-full text-foreground/70 hover:text-primary hover:bg-primary/10"
+        />
       </div>
 
       <a

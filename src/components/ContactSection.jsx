@@ -1,19 +1,24 @@
-import { useState } from "react";
-import { Check, Copy, Github, Linkedin, Mail, MapPin, Phone } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+import { Check, Copy, Mail, MapPin, Phone } from "lucide-react";
 import { useTranslations } from "@/i18n/LanguageProvider";
 import { SectionHeading } from "@/components/SectionHeading";
 import { PROFILE } from "@/lib/profile";
+import { SocialLinks } from "@/components/SocialLinks";
 
 export const ContactSection = ({ number }) => {
   const { messages } = useTranslations();
   const { contact, nav } = messages;
   const [copied, setCopied] = useState(false);
+  const timer = useRef();
+
+  useEffect(() => () => clearTimeout(timer.current), []);
 
   const copyEmail = async () => {
     try {
       await navigator.clipboard.writeText(PROFILE.email);
       setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
+      clearTimeout(timer.current);
+      timer.current = setTimeout(() => setCopied(false), 2000);
     } catch {
       window.location.href = `mailto:${PROFILE.email}`;
     }
@@ -66,24 +71,10 @@ export const ContactSection = ({ number }) => {
 
             <div className="mt-8">
               <h3 className="text-sm font-medium mb-3">{contact.socialTitle}</h3>
-              <div className="flex justify-center gap-3">
-                {[
-                  { href: PROFILE.linkedin, label: "LinkedIn", Icon: Linkedin },
-                  { href: PROFILE.github, label: "GitHub", Icon: Github },
-                ].map(({ href, label, Icon }) => (
-                  <a
-                    key={label}
-                    href={href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={label}
-                    title={label}
-                    className="p-3 rounded-full bg-primary/10 text-primary hover:bg-primary/20 transition-colors"
-                  >
-                    <Icon size={20} aria-hidden="true" />
-                  </a>
-                ))}
-              </div>
+              <SocialLinks
+                className="justify-center gap-3"
+                linkClassName="p-3 rounded-full bg-primary/10 text-primary hover:bg-primary/20"
+              />
             </div>
           </div>
         </div>

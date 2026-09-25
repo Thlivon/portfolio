@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#060914" />
     <script>
       // Tema antes del primer paint (evita el parpadeo claro→oscuro). Sin preferencia guardada
       // se usa la del sistema operativo. ThemeToggle solo alterna la clase después.
@@ -11,12 +12,13 @@
         try { theme = localStorage.getItem("theme"); } catch (e) {}
         if (theme === "dark" || (!theme && matchMedia("(prefers-color-scheme: dark)").matches)) {
           document.documentElement.classList.add("dark");
+        } else {
+          document.querySelector('meta[name="theme-color"]').content = "#f8fafc";
         }
       })();
     </script>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-    <meta name="theme-color" content="#060914" />
     <meta name="author" content="Thomas Livon" />
     <!--app-head-->
     <title>Thomas Livon — Desarrollador FullStack & Analista de Sistemas</title>

@@ -8,6 +8,7 @@ export const ThemeToggle = () => {
 
   const toggleTheme = () => {
     const isDark = document.documentElement.classList.toggle("dark");
+    document.querySelector('meta[name="theme-color"]')?.setAttribute("content", isDark ? "#060914" : "#f8fafc");
     try {
       localStorage.setItem("theme", isDark ? "dark" : "light");
     } catch {
