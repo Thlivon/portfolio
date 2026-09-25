@@ -57,7 +57,7 @@ export const Navbar = () => {
 
   const linkClass = (key) =>
     cn(
-      "transition-colors duration-300 hover:text-primary",
+      "py-1 transition-colors duration-300 hover:text-primary",
       active === key ? "text-primary" : "text-foreground/80"
     );
 

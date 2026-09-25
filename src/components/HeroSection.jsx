@@ -13,7 +13,7 @@ export const HeroSection = () => {
       className="relative min-h-svh flex flex-col items-center justify-center px-4 pt-24 pb-20 text-center"
     >
       <div className="container max-w-4xl mx-auto z-10 space-y-6">
-        <p className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-primary/30 bg-primary/10 text-sm text-primary opacity-0 animate-fade-in">
+        <p className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-primary/30 bg-primary/10 text-sm text-foreground/90 opacity-0 animate-fade-in">
           <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" aria-hidden="true" />
           {hero.badge}
         </p>

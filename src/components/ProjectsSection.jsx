@@ -108,7 +108,7 @@ export const ProjectsSection = ({ number }) => {
                         href={project.demoUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 text-primary hover:underline underline-offset-4"
+                        className="inline-flex items-center gap-1.5 py-1 text-primary hover:underline underline-offset-4"
                       >
                         <ExternalLink size={16} aria-hidden="true" /> {projects.viewSite}
                       </a>
@@ -118,7 +118,7 @@ export const ProjectsSection = ({ number }) => {
                         href={project.githubUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 text-foreground/80 hover:text-primary transition-colors"
+                        className="inline-flex items-center gap-1.5 py-1 text-foreground/80 hover:text-primary transition-colors"
                       >
                         <Github size={16} aria-hidden="true" /> {projects.viewCode}
                       </a>
