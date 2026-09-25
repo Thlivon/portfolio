@@ -1,49 +1,59 @@
 {
+  "meta": {
+    "title": "Thomas Livon — Desarrollador FullStack & Analista de Sistemas",
+    "description": "Portfolio de Thomas Livon: desarrollador FullStack y analista de sistemas con más de 5 años creando aplicaciones de gestión con SQL Server, Oracle y JavaScript.",
+    "ogLocale": "es_AR"
+  },
   "nav": {
     "brandName": "Thomas Livon",
     "brandSuffix": "Portfolio",
     "openMenu": "Abrir menú",
     "closeMenu": "Cerrar menú",
-    "home": "Inicio",
     "about": "Sobre mí",
     "experience": "Experiencia",
     "skills": "Habilidades",
     "projects": "Proyectos",
     "education": "Educación",
-    "contact": "Contacto"
+    "contact": "Contacto",
+    "backToTop": "Volver arriba",
+    "skipToContent": "Saltar al contenido"
   },
   "theme": {
-    "toggleToLight": "Cambiar a modo claro",
-    "toggleToDark": "Cambiar a modo oscuro"
+    "toggle": "Cambiar entre modo claro y oscuro"
   },
   "hero": {
+    "badge": "Abierto a nuevas oportunidades",
     "greeting": "Hola, soy",
     "firstName": "Thomas",
     "lastName": "Livon",
-    "description": "Profesional con más de 5 años de experiencia en desarrollo y gestión de proyectos, con enfoque en optimización de procesos, mejora continua, análisis de datos, resolución de problemas y trabajo en equipo. Destaco por mi capacidad de adaptación a entornos ágiles, colaboración multidisciplinaria y orientación a resultados medibles que impulsan la eficiencia operativa y el crecimiento del negocio. Comprometido con la innovación y la transformación digital, busco aportar valor a través de soluciones escalables y estratégicas que generen impacto positivo en la organización.",
-    "cta": "Ver mi trabajo",
-    "scroll": "Desplázate"
+    "role": "Desarrollador FullStack & Analista de Sistemas",
+    "description": "Desarrollo aplicaciones de gestión con SQL Server, Oracle y JavaScript. Más de 5 años en proyectos para clientes como Medife y Banco Industrial.",
+    "ctaProjects": "Ver proyectos",
+    "ctaCv": "Descargar CV",
+    "scroll": "Desplazate"
   },
   "about": {
     "heading1": "Sobre",
     "heading2": "Mí",
-    "role": "Desarrollador FullStack & Analista de Sistemas",
     "paragraph1": "Profesional con más de 5 años de experiencia en desarrollo y gestión de proyectos, especializado en la optimización de procesos, análisis de datos y desarrollo de soluciones escalables. Me adapto a entornos ágiles y me oriento a resultados medibles.",
     "paragraph2": "Mi experiencia incluye el Desarrollo FullStack con SQL Server y Oracle, desarrollo frontend con JavaScript, integración de procesos con sistemas como SAP, OpenDev, SNP y SUME, y redacción de documentación funcional, técnica y manuales de usuario. Busco aportar valor a través de la innovación y transformación digital.",
-    "contactCta": "Contáctame",
+    "contactCta": "Contactame",
     "downloadCv": "Descargar CV",
     "cards": [
       {
         "title": "Desarrollo FullStack & Bases de Datos",
-        "description": "Arquitectura y desarrollo de funcionalidades de Backend con SQL Server y Oracle, y desarrollo Frontend con JavaScript."
+        "description": "Arquitectura y desarrollo de funcionalidades de Backend con SQL Server y Oracle, y desarrollo Frontend con JavaScript.",
+        "icon": "code"
       },
       {
         "title": "Análisis y Optimización de Procesos",
-        "description": "Análisis de sistemas para la mejora continua y automatización de procesos de deployment y testing mediante Bash Scripting."
+        "description": "Análisis de sistemas para la mejora continua y automatización de procesos de deployment y testing mediante Bash Scripting.",
+        "icon": "user"
       },
       {
         "title": "Gestión de Proyectos y Calidad (QA)",
-        "description": "Experiencia en la gestión de proyectos de aplicativos de negocio y testing integral de soluciones (QA, validación funcional y técnica)."
+        "description": "Experiencia en la gestión de proyectos de aplicativos de negocio y testing integral de soluciones (QA, validación funcional y técnica).",
+        "icon": "briefcase"
       }
     ]
   },
@@ -51,10 +61,9 @@
     "heading1": "Mis",
     "heading2": "Habilidades",
     "categories": {
-      "all": "Todas",
       "frontend": "Frontend",
-      "backend": "Backend",
-      "tools": "Herramientas"
+      "backend": "Backend & Datos",
+      "tools": "Frameworks & Herramientas"
     },
     "levels": {
       "advanced": "Avanzado",
@@ -79,12 +88,13 @@
       { "name": "Git & GitHub", "level": 100, "category": "tools" },
       { "name": "Hibernate", "level": 80, "category": "tools" },
       { "name": "Spring Boot", "level": 80, "category": "tools" },
-      { "name": "n8n-AI workflow automation", "level": 70, "category": "tools" },
+      { "name": "n8n (automatización con IA)", "level": 70, "category": "tools" },
       { "name": "Claude Code", "level": 70, "category": "tools" },
       { "name": ".NET Framework", "level": 60, "category": "tools" },
       { "name": "ASP.NET Core", "level": 60, "category": "tools" },
       { "name": "Windows Forms", "level": 60, "category": "tools" }
-    ]
+    ],
+    "subtitle": "Tecnologías con las que trabajo, agrupadas por nivel de experiencia."
   },
   "experience": {
     "heading1": "Mi",
@@ -106,7 +116,11 @@
           "Redacción de documentación funcional, técnica y manuales de usuario",
           "Testing integral de soluciones desarrolladas (QA, validación funcional y técnica)"
         ],
-        "clients": ["Medife", "Sol Naciente", "Banco Industrial (BIND)"],
+        "clients": [
+          "Medife",
+          "Sol Naciente",
+          "Banco Industrial (BIND)"
+        ],
         "projects": [
           "Administración de Propiedades",
           "Portal de Recaudaciones",
@@ -130,7 +144,9 @@
         "clients": [],
         "projects": []
       }
-    ]
+    ],
+    "showMore": "Ver más",
+    "showLess": "Ver menos"
   },
   "education": {
     "heading1": "Educación",
@@ -143,7 +159,11 @@
         "period": "Marzo 2021 - Actualidad",
         "title": "Licenciatura en Sistemas",
         "institution": "Universidad Nacional de Lanús",
-        "detail": "31 de 36 asignaturas aprobadas."
+        "detail": "31 de 36 asignaturas aprobadas.",
+        "progress": {
+          "done": 31,
+          "total": 36
+        }
       },
       {
         "period": "Marzo 2015 - Noviembre 2020",
@@ -187,37 +207,54 @@
     "languages": [
       { "name": "Español", "level": "Nativo" },
       { "name": "Inglés", "level": "Intermedio básico" }
-    ]
+    ],
+    "progressLabel": "materias aprobadas"
   },
   "projects": {
     "heading1": "Proyectos",
     "heading2": "Destacados",
-    "subtitle": "Aquí están algunos de mis proyectos más recientes.",
-    "githubCta": "Mi Github",
+    "subtitle": "Una selección de proyectos propios, académicos y sitios en producción.",
+    "githubCta": "Ver más en GitHub",
     "productiveBadge": "Sitio productivo",
     "items": [
       {
         "title": "Reemplazador de Archivos con IA",
         "description": "Sitio productivo: subís un documento, la IA detecta sus campos variables, completás los valores y descargás el archivo regenerado con el mismo formato",
-        "image": "/projects/project5.png",
-        "tags": ["Next.js", "TypeScript", "PostgreSQL", "Prisma", "Google Gemini"],
+        "image": "/projects/project5.webp",
+        "tags": [
+          "Next.js",
+          "TypeScript",
+          "PostgreSQL",
+          "Prisma",
+          "Google Gemini"
+        ],
         "demoUrl": "https://filereplacer.tl256.com/es",
         "githubUrl": "#",
-        "productive": true
+        "productive": true,
+        "featured": true
       },
       {
         "title": "Módulo de Administración de Inmobiliaria",
         "description": "Módulo de Odoo 18 desarrollado en equipo para gestionar propiedades inmobiliarias: alta de inmuebles, seguimiento de clientes y estado de cada operación.",
-        "image": "/projects/project1.png",
-        "tags": ["Odoo 18", "Python", "PostgreSQL"],
+        "image": "/projects/project1.webp",
+        "tags": [
+          "Odoo 18",
+          "Python",
+          "PostgreSQL"
+        ],
         "demoUrl": "#",
         "githubUrl": "https://github.com/Thlivon/odoo_unla_2025_grupo_m"
       },
       {
         "title": "E-commerce BanfieldGL",
         "description": "Tienda online en Tienda Nube con sistema de garantías a medida: backoffice de ventas y productos, consulta pública de garantías y reclamos con comprobante PDF.",
-        "image": "/projects/project3.png",
-        "tags": ["Tienda Nube", "JavaScript", "Google Tag Manager", "Apps Script"],
+        "image": "/projects/project3.webp",
+        "tags": [
+          "Tienda Nube",
+          "JavaScript",
+          "Google Tag Manager",
+          "Apps Script"
+        ],
         "demoUrl": "https://www.banfieldgl.com/",
         "githubUrl": "#",
         "productive": true
@@ -225,37 +262,49 @@
       {
         "title": "Analizador de Chats de WhatsApp",
         "description": "Dashboard en Streamlit que analiza exports de chats de WhatsApp: usuario más activo, emojis frecuentes y nube de palabras.",
-        "image": "/projects/project4.png",
-        "tags": ["Python", "Streamlit", "pandas"],
+        "image": "/projects/project4.webp",
+        "tags": [
+          "Python",
+          "Streamlit",
+          "pandas"
+        ],
         "demoUrl": "#",
         "githubUrl": "https://github.com/Thlivon/tp-ing-soft-iii"
       },
       {
         "title": "Aplicación de escritorio para Gestión de Ventas",
         "description": "Aplicación de escritorio en VB.NET con arquitectura en capas (BLL, DAL, Entidades) para gestionar ventas, clientes, productos y stock de un comercio.",
-        "image": "/projects/project2.png",
-        "tags": ["Visual Basic .NET", "SQL Server"],
+        "image": "",
+        "tags": [
+          "Visual Basic .NET",
+          "SQL Server"
+        ],
         "demoUrl": "#",
         "githubUrl": "#"
       }
-    ]
+    ],
+    "viewSite": "Ver sitio",
+    "viewCode": "Código",
+    "noImage": "Sin captura disponible"
   },
   "contact": {
-    "heading": "Contacto",
-    "subtitle": "¿Tienes un proyecto en mente o quieres colaborar? No dudes en contactarme. Estoy siempre abierto a nuevas oportunidades.",
-    "infoTitle": "Información de Contacto",
+    "subtitle": "¿Tenés un proyecto en mente o una propuesta laboral? Escribime y te respondo a la brevedad.",
     "emailLabel": "Email",
     "phoneLabel": "Teléfono",
     "locationLabel": "Ubicación",
     "location": "Prov Bs. As., Argentina",
-    "usefulLinksTitle": "Links Útiles"
+    "title": "¿Hablamos?",
+    "emailCta": "Escribime",
+    "copyEmail": "Copiar email",
+    "copied": "¡Email copiado!",
+    "socialTitle": "Redes"
   },
   "footer": {
     "rights": "Todos los derechos reservados."
   },
   "notFound": {
     "title": "Página no encontrada",
-    "message": "Lo que buscas no existe o fue movido.",
+    "message": "Lo que buscás no existe o fue movido.",
     "backHome": "Volver al inicio"
   }
 }

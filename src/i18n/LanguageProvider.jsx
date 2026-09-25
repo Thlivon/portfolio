@@ -13,9 +13,12 @@ export const LanguageProvider = ({ lang, children }) => {
     [lang]
   );
 
+  // Al cambiar de idioma sin recargar (ES/EN en el navbar) el <head> pre-renderizado queda
+  // con el idioma anterior: actualizar lo que ve el usuario (lang y título de la pestaña).
   useEffect(() => {
     document.documentElement.lang = lang;
-  }, [lang]);
+    document.title = value.messages.meta.title;
+  }, [lang, value]);
 
   return <LanguageContext.Provider value={value}>{children}</LanguageContext.Provider>;
 };

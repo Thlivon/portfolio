@@ -23,11 +23,16 @@ export default [
     rules: {
       ...js.configs.recommended.rules,
       ...reactHooks.configs.recommended.rules,
-      'no-unused-vars': ['error', { varsIgnorePattern: '^[A-Z_]' }],
+      'no-unused-vars': ['error', { varsIgnorePattern: '^[A-Z_]', argsIgnorePattern: '^[A-Z_]' }],
       'react-refresh/only-export-components': [
         'warn',
         { allowConstantExport: true },
       ],
     },
+  },
+  {
+    // config de Vite y scripts de build corren en Node, no en el navegador
+    files: ['vite.config.js', 'scripts/**/*.js'],
+    languageOptions: { globals: globals.node },
   },
 ]

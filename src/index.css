@@ -1,5 +1,8 @@
 @import "tailwindcss";
 
+/* dark: responde a la clase .dark en <html> (la maneja ThemeToggle), no a prefers-color-scheme */
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
   --color-border: hsl(var(--border));
   --color-background: hsl(var(--background));
@@ -15,6 +18,8 @@
   --color-muted-foreground: hsl(var(--muted-foreground));
   --color-input: hsl(var(--input));
 
+  --font-sans: "Inter Variable", ui-sans-serif, system-ui, sans-serif;
+
   --animate-float: float 6s ease-in-out infinite;
   --animate-pulse-subtle: pulse-subtle 4s ease-in-out infinite;
   --animate-fade-in: fade-in 0.7s ease-out forwards;
@@ -23,6 +28,7 @@
   --animate-fade-in-delay-3: fade-in 0.7s ease-out 0.6s forwards;
   --animate-fade-in-delay-4: fade-in 0.7s ease-out 0.8s forwards;
   --animate-meteor: meteor 5s linear infinite;
+  --animate-grow: grow 1.2s ease-out;
 
   @keyframes float {
     0%,
@@ -50,6 +56,14 @@
     to {
       opacity: 1;
       transform: translateY(0);
+    }
+  }
+  @keyframes grow {
+    from {
+      transform: scaleX(0);
+    }
+    to {
+      transform: scaleX(1);
     }
   }
   @keyframes meteor {
@@ -84,6 +98,8 @@
     --secondary-foreground: 222 47% 11%;
 
     --muted-foreground: 215 16% 47%;
+
+    --gradient-end: 290 60% 45%;
   }
 
   .dark {
@@ -93,7 +109,7 @@
     --card: 222 47% 8%;
 
     --primary: 250 65% 65%;
-    --primary-foreground: 213 31% 91%;
+    --primary-foreground: 222 47% 6%;
 
     --border: 217 33% 20%;
     --input: 217 33% 20%;
@@ -102,6 +118,8 @@
     --secondary-foreground: 213 31% 91%;
 
     --muted-foreground: 215 20% 65%;
+
+    --gradient-end: 290 70% 70%;
   }
 
   * {
@@ -110,6 +128,16 @@
 
   html {
     @apply scroll-smooth;
+  }
+
+  /* compensa el navbar fijo al saltar a una sección por ancla */
+  section[id] {
+    scroll-margin-top: 4rem;
+  }
+
+  :focus-visible {
+    outline: 2px solid hsl(var(--primary));
+    outline-offset: 2px;
   }
 
   body {
@@ -155,14 +183,20 @@
   text-shadow: 0 0 10px rgba(167, 139, 250, 0.5);
 }
 
+/* solo para cards clickeables (proyectos); el resto no lleva hover */
 @utility card-hover {
-  @apply transition-transform duration-300 hover:scale-[1.02] hover:shadow-lg;
+  @apply transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-primary/40;
 }
 
 @utility cosmic-button {
-  @apply px-6 py-2 rounded-full bg-primary text-primary-foreground font-medium 
+  @apply inline-flex items-center justify-center gap-2 px-6 py-2 rounded-full bg-primary text-primary-foreground font-medium
          transition-all duration-300 hover:shadow-[0_0_10px_rgba(139,92,246,0.5)]
          hover:scale-105 active:scale-95;
+}
+
+@utility outline-button {
+  @apply inline-flex items-center justify-center gap-2 px-6 py-2 rounded-full border border-primary text-primary font-medium
+         transition-colors duration-300 hover:bg-primary/10;
 }
 
 @utility star {
@@ -173,11 +207,12 @@
 @utility meteor {
   @apply absolute bg-linear-to-r from-white via-white to-transparent rounded-full;
   box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.3);
+  /* invisible durante el animation-delay; la animación lo lleva a opacity 1 */
+  opacity: 0;
 }
 
-#root {
-  max-width: 100%;
-  margin: 0 auto;
-  padding: 0;
-  text-align: center;
+@utility text-gradient {
+  background-image: linear-gradient(to right, hsl(var(--primary)), hsl(var(--gradient-end)));
+  background-clip: text;
+  color: transparent;
 }

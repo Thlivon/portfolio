@@ -1,8 +1,15 @@
-import { useState } from "react";
+import { Database, LayoutTemplate, Wrench } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useTranslations } from "@/i18n/LanguageProvider";
+import { SectionHeading } from "@/components/SectionHeading";
 
-const CATEGORY_KEYS = ["all", "frontend", "backend", "tools"];
+const CATEGORIES = [
+  { key: "frontend", Icon: LayoutTemplate },
+  { key: "backend", Icon: Database },
+  { key: "tools", Icon: Wrench },
+];
+
+const LEVELS = ["advanced", "intermediate", "basic"];
 
 const levelKey = (level) => {
   if (level >= 80) return "advanced";
@@ -10,63 +17,63 @@ const levelKey = (level) => {
   return "basic";
 };
 
-export const SkillsSection = () => {
-  const { messages } = useTranslations();
-  const { skills } = messages;
-  const [activeCategory, setActiveCategory] = useState("all");
+const CHIP_STYLE = {
+  advanced: "bg-primary/15 border-primary/40 text-foreground",
+  intermediate: "bg-secondary border-border text-secondary-foreground",
+  basic: "border-border border-dashed text-muted-foreground",
+};
 
-  const filteredSkills = skills.items.filter(
-    (skill) => activeCategory === "all" || skill.category === activeCategory
-  );
+export const SkillsSection = ({ number }) => {
+  const { messages } = useTranslations();
+  const { skills, nav } = messages;
 
   return (
-    <section id="skills" className="py-24 px-4 relative bg-secondary/30">
+    <section id="skills" className="py-24 px-4 relative">
       <div className="container mx-auto max-w-5xl">
-        <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
-          {skills.heading1} <span className="text-primary"> {skills.heading2}</span>
-        </h2>
+        <SectionHeading
+          number={number}
+          eyebrow={nav.skills}
+          title={skills.heading1}
+          highlight={skills.heading2}
+          subtitle={skills.subtitle}
+        />
 
-        <div className="flex flex-wrap justify-center gap-4 mb-12">
-          {CATEGORY_KEYS.map((category) => (
-            <button
-              key={category}
-              onClick={() => setActiveCategory(category)}
-              aria-pressed={activeCategory === category}
-              className={cn(
-                "px-5 py-2 rounded-full transition-colors duration-300",
-                activeCategory === category
-                  ? "bg-primary text-primary-foreground"
-                  : "bg-secondary/70 text-foreground hover:bg-secondary"
-              )}
-            >
-              {skills.categories[category]}
-            </button>
-          ))}
-        </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {CATEGORIES.map(({ key, Icon }) => {
+            const items = skills.items.filter((s) => s.category === key);
+            return (
+              <div key={key} className="bg-card border border-border rounded-xl p-6">
+                <h3 className="flex items-center gap-2 font-semibold text-lg mb-5">
+                  <Icon className="h-5 w-5 text-primary" aria-hidden="true" />
+                  {skills.categories[key]}
+                </h3>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredSkills.map((skill) => (
-            <div
-              key={skill.name}
-              className="bg-card p-6 rounded-lg shadow-xs card-hover"
-            >
-              <div className="text-left mb-4">
-                <h3 className="font-semibold text-lg"> {skill.name}</h3>
+                <div className="space-y-4">
+                  {LEVELS.map((level) => {
+                    const group = items.filter((s) => levelKey(s.level) === level);
+                    if (group.length === 0) return null;
+                    return (
+                      <div key={level}>
+                        <p className="text-xs uppercase tracking-wider text-muted-foreground mb-2">
+                          {skills.levels[level]}
+                        </p>
+                        <ul className="flex flex-wrap gap-2">
+                          {group.map((skill) => (
+                            <li
+                              key={skill.name}
+                              className={cn("px-3 py-1 text-sm rounded-full border", CHIP_STYLE[level])}
+                            >
+                              {skill.name}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    );
+                  })}
+                </div>
               </div>
-              <div className="w-full bg-secondary/50 h-2 rounded-full overflow-hidden">
-                <div
-                  className="bg-primary h-2 rounded-full origin-left animate-[grow_1.5s_ease-out]"
-                  style={{ width: skill.level + "%" }}
-                />
-              </div>
-
-              <div className="text-right mt-1">
-                <span className="text-sm text-muted-foreground">
-                  {skills.levels[levelKey(skill.level)]}
-                </span>
-              </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>

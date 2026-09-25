@@ -12,8 +12,9 @@ Argumentos recibidos en `$ARGUMENTS` (pueden venir vacíos o parciales). Para ca
 - **Título** (es) — nombre corto del proyecto.
 - **Descripción** (es) — 1-3 líneas: qué es, problema que resuelve o rol cumplido. Evitar descripciones de una sola frase genérica.
 - **Tags/stack** — tecnologías principales (ej: "React, Node.js, PostgreSQL").
-- **Imagen** — ruta a un archivo local para copiar a `public/projects/`, o confirmación de que ya existe ahí. El componente arma la URL con `import.meta.env.BASE_URL + project.image.replace(/^\//, "")`, así que en el JSON `image` va como `/projects/nombre-archivo.png`. Si el usuario no tiene imagen todavía, avisale que la card va a mostrar el alt text hasta que la suba (mismo bug que `docs/mejoras.md` ítem 1.2) y preguntá si continuar igual.
-- **URL de demo** — si no hay demo pública, usar `"#"` (el componente oculta el ícono de link cuando el valor es `"#"`).
+- **Imagen** — ruta a un archivo local para copiar a `public/projects/`, o confirmación de que ya existe ahí. El componente arma la URL con `import.meta.env.BASE_URL + project.image.replace(/^\//, "")`, así que en el JSON `image` va como `/projects/nombre-archivo.webp`. Si el usuario no tiene imagen todavía, usar `"image": ""`: la card muestra un placeholder ("Sin captura disponible").
+- **URL de demo** — si no hay demo pública, usar `"#"` (el componente oculta el botón "Ver sitio" cuando el valor es `"#"`).
+- **¿Sitio productivo?** — si está en producción con usuarios reales, agregar `"productive": true` (muestra el badge).
 - **URL de GitHub** — ídem, `"#"` si el repo no es público.
 
 ## 2. Traducir al inglés
@@ -28,7 +29,7 @@ Agregar un objeto nuevo al final del array `projects.items` en **ambos** `src/me
 {
   "title": "...",
   "description": "...",
-  "image": "/projects/archivo.png",
+  "image": "/projects/archivo.webp",
   "tags": ["...", "..."],
   "demoUrl": "...",
   "githubUrl": "..."
@@ -39,7 +40,7 @@ No toques `ProjectsSection.jsx`: ya itera `projects.items` dinámicamente, no re
 
 ## 4. Imagen
 
-Si te pasaron un archivo de imagen, copialo a `public/projects/` con un nombre descriptivo en minúsculas (ej. `project4.png`). Si pesa más de ~150 KB, avisá que conviene convertirla a WebP/comprimirla (`docs/mejoras.md` ítem 5) pero no lo hagas de forma no solicitada salvo que el usuario lo pida.
+Si te pasaron un archivo de imagen, convertila a WebP de 800px de ancho (calidad ~80) y guardala en `public/projects/` con un nombre en minúsculas (ej. `project6.webp`). Con Python/Pillow: `Image.open(src).convert("RGB").resize((800, round(h * 800 / w))).save(dst, "WEBP", quality=80, method=6)`. Las cards usan proporción 2:1 recortando desde arriba, así que conviene una captura apaisada (~2.2:1).
 
 ## 5. Verificar
 

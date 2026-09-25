@@ -9,27 +9,29 @@ import { ProjectsSection } from "@/components/ProjectsSection";
 import { ContactSection } from "@/components/ContactSection";
 import { Footer } from "@/components/Footer";
 
+// El orden de acá define la numeración "01 ·" de cada sección; mantenerlo igual que NAV_LINKS en Navbar.
+const SECTIONS = [
+  ProjectsSection,
+  ExperienceSection,
+  SkillsSection,
+  AboutSection,
+  EducationSection,
+  ContactSection,
+];
+
 export const Home = () => {
   return (
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
-      {/* Background Effects */}
       <StarBackground />
+      <Navbar />
 
-      {/* Navbar */}
-      <Navbar></Navbar>
-
-      {/* Main Content */}
-      <main>
+      <main id="main">
         <HeroSection />
-        <AboutSection />
-        <ExperienceSection />
-        <SkillsSection />
-        <ProjectsSection />
-        <EducationSection />
-        <ContactSection />
+        {SECTIONS.map((Section, i) => (
+          <Section key={i} number={String(i + 1).padStart(2, "0")} />
+        ))}
       </main>
 
-      {/* Footer */}
       <Footer />
     </div>
   );

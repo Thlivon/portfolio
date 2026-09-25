@@ -10,8 +10,8 @@ Vas a agregar una skill nueva a la sección "Skills" (`SkillsSection.jsx`). Igua
 Argumentos recibidos en `$ARGUMENTS`. Para lo que falte, preguntá al usuario:
 
 - **Nombre** — nombre de la tecnología/habilidad (ej. "Docker"). Los nombres de tecnologías/productos generalmente NO se traducen entre `es.json` y `en.json` (se escriben igual en ambos). Si el nombre describe una habilidad genérica en vez de una tecnología puntual (como "Desarrollo de Formularios" → "Form Development"), sí traducilo.
-- **Nivel** — número de 0 a 100 (se usa como `width: level + "%"` en la barra de progreso). Si el usuario prefiere describirlo en palabras ("intermedio", "avanzado"), acordá con él una equivalencia razonable antes de convertirlo a número — no inventes un porcentaje sin que lo valide.
-- **Categoría** — tiene que ser exactamente una de las que ya filtra el componente: `frontend`, `backend` o `tools`. Si el usuario no la sabe, ayudalo a elegir según el resto de las skills ya cargadas en el JSON.
+- **Nivel** — Avanzado, Intermedio o Básico. En el JSON se guarda como número: `level` ≥ 80 = Avanzado, 60-79 = Intermedio, < 60 = Básico (el número no se muestra, solo agrupa los chips). Usar 90 / 70 / 50 según corresponda.
+- **Categoría** — tiene que ser exactamente una de las columnas del componente: `frontend`, `backend` (Backend & Datos) o `tools` (Frameworks & Herramientas). Si el usuario no la sabe, ayudalo a elegir según el resto de las skills ya cargadas en el JSON.
 
 ## 2. Editar los JSON
 
@@ -21,8 +21,8 @@ Agregar un objeto nuevo a `skills.items` en **ambos** `src/messages/es.json` y `
 { "name": "...", "level": 0, "category": "frontend" }
 ```
 
-No toques `SkillsSection.jsx`: ya itera `skills.items` y `skills.categories` dinámicamente.
+No toques `SkillsSection.jsx`: ya agrupa `skills.items` por categoría y nivel.
 
 ## 3. Verificar
 
-Correr `npm run build`. Si hay preview disponible, confirmar que la skill aparece al filtrar por su categoría y en "Todas"/"All", en ambos idiomas.
+Correr `npm run build`. Si hay preview disponible, confirmar que el chip aparece en la columna y nivel correctos, en ambos idiomas.

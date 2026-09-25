@@ -1,14 +1,30 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <!--link rel="icon" type="image/svg+xml" href="/vite.svg" />-->
-    <link rel="icon" type="image/svg+xml" href="/briefcase-business.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Portfolio Thomas Livon</title>
+    <script>
+      // Tema antes del primer paint (evita el parpadeo claro→oscuro). Sin preferencia guardada
+      // se usa la del sistema operativo. ThemeToggle solo alterna la clase después.
+      (function () {
+        var theme;
+        try { theme = localStorage.getItem("theme"); } catch (e) {}
+        if (theme === "dark" || (!theme && matchMedia("(prefers-color-scheme: dark)").matches)) {
+          document.documentElement.classList.add("dark");
+        }
+      })();
+    </script>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <meta name="theme-color" content="#060914" />
+    <meta name="author" content="Thomas Livon" />
+    <!--app-head-->
+    <title>Thomas Livon — Desarrollador FullStack & Analista de Sistemas</title>
+    <meta name="description" content="Portfolio de Thomas Livon: desarrollador FullStack y analista de sistemas con más de 5 años creando aplicaciones de gestión con SQL Server, Oracle y JavaScript." />
+    <!--/app-head-->
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root"><!--app-html--></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>

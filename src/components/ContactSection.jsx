@@ -1,213 +1,91 @@
-import {
-  Instagram,
-  Linkedin,
-  Mail,
-  MapPin,
-  Phone,
-  Send,
-  Twitch,
-  Twitter,
-  Github,
-} from "lucide-react";
-import { cn } from "@/lib/utils";
-import { useToast } from "@/hooks/use-toast";
 import { useState } from "react";
+import { Check, Copy, Github, Linkedin, Mail, MapPin, Phone } from "lucide-react";
 import { useTranslations } from "@/i18n/LanguageProvider";
+import { SectionHeading } from "@/components/SectionHeading";
+import { PROFILE } from "@/lib/profile";
 
-export const ContactSection = () => {
+export const ContactSection = ({ number }) => {
   const { messages } = useTranslations();
-  const { contact } = messages;
-  const { toast } = useToast();
-  const [isSubmitting, setIsSubmitting] = useState(false);
+  const { contact, nav } = messages;
+  const [copied, setCopied] = useState(false);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    setIsSubmitting(true);
-
-    setTimeout(() => {
-      toast({
-        title: "¡Mensaje enviado!",
-        description: "Gracias por tu mensaje. Te responderé a la brevedad.",
-      });
-      setIsSubmitting(false);
-    }, 1500);
+  const copyEmail = async () => {
+    try {
+      await navigator.clipboard.writeText(PROFILE.email);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch {
+      window.location.href = `mailto:${PROFILE.email}`;
+    }
   };
+
   return (
-    <section id="contact" className="py-24 px-4 relative bg-secondary/30">
+    <section id="contact" className="py-24 px-4 relative">
       <div className="container mx-auto max-w-5xl">
-        <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">
-          {contact.heading}
-        </h2>
+        <SectionHeading number={number} eyebrow={nav.contact} title={contact.title} />
 
-        <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-          {contact.subtitle}
-        </p>
-
-        {/*<div className="grid grid-cols-1 md:grid-cols-2 gap-12">*/}
-        <div className="grid grid-cols-1 gap-12 justify-items-center">
-          <div className="space-y-8 w-full max-w-md text-center">
-            <h3 className="text-2xl font-semibold mb-6"> {contact.infoTitle}</h3>
-
-            <div className="space-y-6">
-              <div className="flex items-center justify-center space-x-4">
-                <div className="p-3 rounded-full bg-primary/10">
-                  <Mail className="h-6 w-6 text-primary" />{" "}
-                </div>
-                <div>
-                  <h4 className="font-medium"> {contact.emailLabel}</h4>
-                  <a
-                    href="mailto:thlivon@gmail.com"
-                    className="text-muted-foreground hover:text-primary transition-colors"
-                  >
-                    thlivon@gmail.com
-                  </a>
-                </div>
-              </div>
-              <div className="flex items-center justify-center space-x-4">
-                <div className="p-3 rounded-full bg-primary/10">
-                  <Phone className="h-6 w-6 text-primary" />{" "}
-                </div>
-                <div>
-                  <h4 className="font-medium"> {contact.phoneLabel}</h4>
-                  <a
-                    href="tel:+541163654186"
-                    className="text-muted-foreground hover:text-primary transition-colors"
-                  >
-                    +54 11 6365-4186
-                  </a>
-                </div>
-              </div>
-              <div className="flex items-center justify-center space-x-4">
-                <div className="p-3 rounded-full bg-primary/10">
-                  <MapPin className="h-6 w-6 text-primary" />{" "}
-                </div>
-                <div>
-                  <h4 className="font-medium"> {contact.locationLabel}</h4>
-                  <p className="text-muted-foreground">{contact.location}</p>
-                </div>
-              </div>
-            </div>
-
-            <div className="pt-8">
-              <h4 className="font-medium mb-4">{contact.usefulLinksTitle}</h4>
-              <div className="flex justify-center space-x-4">
-                <a
-                  href="https://www.linkedin.com/in/thomas-livon-852b84203/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  title="Linkedin"
-                >
-                  <Linkedin />
-                </a>
-                <a
-                  href="https://github.com/Thlivon"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  title="Github"
-                >
-                  <Github />
-                </a>
-                {/*
-                <a
-                  href="#"
-                  target="_blank"
-                  className="text-muted-foreground hover:text-primary transition-colors"
-                >
-                  <Twitter />
-                </a>
-                <a
-                  href="#"
-                  target="_blank"
-                  className="text-muted-foreground hover:text-primary transition-colors"
-                >
-                  <Instagram />
-                </a>
-                <a
-                  href="#"
-                  target="_blank"
-                  className="text-muted-foreground hover:text-primary transition-colors"
-                >
-                  <Twitch />
-                </a>
-                */}
-              </div>
-            </div>
-          </div>
-          {/*
+        <div className="relative overflow-hidden rounded-2xl border border-primary/30 bg-card p-8 md:p-12 text-center shadow-lg">
           <div
-            className="bg-card p-8 rounded-lg shadow-xs"
-            onSubmit={handleSubmit}
-          >
-            <h3 className="text-2xl font-semibold mb-6"> Envíame un Mensaje</h3>
+            aria-hidden="true"
+            className="absolute inset-0 -z-0 bg-linear-to-br from-primary/15 via-transparent to-transparent pointer-events-none"
+          />
+          <div className="relative">
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8">{contact.subtitle}</p>
 
-            <form className="space-y-6">
-              <div>
-                <label
-                  htmlFor="name"
-                  className="block text-sm font-medium mb-2"
-                >
-                  {" "}
-                  Tu Nombre
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  required
-                  className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outline-hidden foucs:ring-2 focus:ring-primary"
-                  placeholder="Matías Lopez..."
-                />
-              </div>
-
-              <div>
-                <label
-                  htmlFor="email"
-                  className="block text-sm font-medium mb-2"
-                >
-                  {" "}
-                  Tu Email
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  required
-                  className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outline-hidden foucs:ring-2 focus:ring-primary"
-                  placeholder="matiaslopez@gmail.com"
-                />
-              </div>
-
-              <div>
-                <label
-                  htmlFor="message"
-                  className="block text-sm font-medium mb-2"
-                >
-                  {" "}
-                  Tu Mensaje
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  required
-                  className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outline-hidden foucs:ring-2 focus:ring-primary resize-none"
-                  placeholder="Hola, me gustaría conversar sobre..."
-                />
-              </div>
-
-              <button
-                type="submit"
-                disabled={isSubmitting}
-                className={cn(
-                  "cosmic-button w-full flex items-center justify-center gap-2"
-                )}
-              >
-                {isSubmitting ? "Enviando..." : "Enviar Mensaje"}
-                <Send size={16} />
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <a href={`mailto:${PROFILE.email}`} className="cosmic-button">
+                <Mail size={16} aria-hidden="true" /> {contact.emailCta}
+              </a>
+              <button type="button" onClick={copyEmail} className="outline-button" aria-live="polite">
+                {copied ? <Check size={16} aria-hidden="true" /> : <Copy size={16} aria-hidden="true" />}
+                {copied ? contact.copied : contact.copyEmail}
               </button>
-            </form>
+            </div>
+
+            <ul className="mt-10 flex flex-col md:flex-row justify-center gap-4 md:gap-10 text-sm text-muted-foreground">
+              <li className="flex items-center justify-center gap-2">
+                <Mail className="h-4 w-4 text-primary" aria-hidden="true" />
+                <span className="sr-only">{contact.emailLabel}: </span>
+                <a href={`mailto:${PROFILE.email}`} className="hover:text-primary transition-colors">
+                  {PROFILE.email}
+                </a>
+              </li>
+              <li className="flex items-center justify-center gap-2">
+                <Phone className="h-4 w-4 text-primary" aria-hidden="true" />
+                <span className="sr-only">{contact.phoneLabel}: </span>
+                <a href={PROFILE.phoneHref} className="hover:text-primary transition-colors">
+                  {PROFILE.phone}
+                </a>
+              </li>
+              <li className="flex items-center justify-center gap-2">
+                <MapPin className="h-4 w-4 text-primary" aria-hidden="true" />
+                <span className="sr-only">{contact.locationLabel}: </span>
+                {contact.location}
+              </li>
+            </ul>
+
+            <div className="mt-8">
+              <h3 className="text-sm font-medium mb-3">{contact.socialTitle}</h3>
+              <div className="flex justify-center gap-3">
+                {[
+                  { href: PROFILE.linkedin, label: "LinkedIn", Icon: Linkedin },
+                  { href: PROFILE.github, label: "GitHub", Icon: Github },
+                ].map(({ href, label, Icon }) => (
+                  <a
+                    key={label}
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={label}
+                    title={label}
+                    className="p-3 rounded-full bg-primary/10 text-primary hover:bg-primary/20 transition-colors"
+                  >
+                    <Icon size={20} aria-hidden="true" />
+                  </a>
+                ))}
+              </div>
+            </div>
           </div>
-          */}
         </div>
       </div>
     </section>

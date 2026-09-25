@@ -1,33 +1,40 @@
 {
+  "meta": {
+    "title": "Thomas Livon — Full-Stack Developer & Systems Analyst",
+    "description": "Portfolio of Thomas Livon: full-stack developer and systems analyst with 5+ years building business applications with SQL Server, Oracle and JavaScript.",
+    "ogLocale": "en_US"
+  },
   "nav": {
     "brandName": "Thomas Livon",
     "brandSuffix": "Portfolio",
     "openMenu": "Open menu",
     "closeMenu": "Close menu",
-    "home": "Home",
     "about": "About",
     "experience": "Experience",
     "skills": "Skills",
     "projects": "Projects",
     "education": "Education",
-    "contact": "Contact"
+    "contact": "Contact",
+    "backToTop": "Back to top",
+    "skipToContent": "Skip to content"
   },
   "theme": {
-    "toggleToLight": "Switch to light mode",
-    "toggleToDark": "Switch to dark mode"
+    "toggle": "Toggle light and dark mode"
   },
   "hero": {
+    "badge": "Open to new opportunities",
     "greeting": "Hi, I'm",
     "firstName": "Thomas",
     "lastName": "Livon",
-    "description": "Professional with over 5 years of experience in development and project management, focused on process optimization, continuous improvement, data analysis, problem solving and teamwork. I stand out for my ability to adapt to agile environments, multidisciplinary collaboration and a focus on measurable results that drive operational efficiency and business growth. Committed to innovation and digital transformation, I aim to add value through scalable, strategic solutions that generate a positive impact on the organization.",
-    "cta": "View My Work",
+    "role": "Full-Stack Developer & Systems Analyst",
+    "description": "I build business applications with SQL Server, Oracle and JavaScript. 5+ years delivering projects for clients such as Medife and Banco Industrial.",
+    "ctaProjects": "View projects",
+    "ctaCv": "Download CV",
     "scroll": "Scroll"
   },
   "about": {
     "heading1": "About",
     "heading2": "Me",
-    "role": "Full-Stack Developer & Systems Analyst",
     "paragraph1": "Professional with over 5 years of experience in development and project management, specialized in process optimization, data analysis and development of scalable solutions. I adapt easily to agile environments and focus on measurable results.",
     "paragraph2": "My experience includes Full-Stack development with SQL Server and Oracle, frontend development with JavaScript, process integration with systems such as SAP, OpenDev, SNP and SUME, and writing functional and technical documentation and user manuals. I aim to add value through innovation and digital transformation.",
     "contactCta": "Contact Me",
@@ -35,15 +42,18 @@
     "cards": [
       {
         "title": "Full-Stack Development & Databases",
-        "description": "Backend architecture and feature development with SQL Server and Oracle, plus frontend development with JavaScript."
+        "description": "Backend architecture and feature development with SQL Server and Oracle, plus frontend development with JavaScript.",
+        "icon": "code"
       },
       {
         "title": "Process Analysis & Optimization",
-        "description": "Systems analysis for continuous improvement and automation of deployment and testing processes using Bash scripting."
+        "description": "Systems analysis for continuous improvement and automation of deployment and testing processes using Bash scripting.",
+        "icon": "user"
       },
       {
         "title": "Project Management & Quality Assurance (QA)",
-        "description": "Experience managing business application projects and comprehensive solution testing (QA, functional and technical validation)."
+        "description": "Experience managing business application projects and comprehensive solution testing (QA, functional and technical validation).",
+        "icon": "briefcase"
       }
     ]
   },
@@ -51,10 +61,9 @@
     "heading1": "My",
     "heading2": "Skills",
     "categories": {
-      "all": "All",
       "frontend": "Frontend",
-      "backend": "Backend",
-      "tools": "Tools"
+      "backend": "Backend & Data",
+      "tools": "Frameworks & Tools"
     },
     "levels": {
       "advanced": "Advanced",
@@ -79,12 +88,13 @@
       { "name": "Git & GitHub", "level": 100, "category": "tools" },
       { "name": "Hibernate", "level": 80, "category": "tools" },
       { "name": "Spring Boot", "level": 80, "category": "tools" },
-      { "name": "n8n-AI workflow automation", "level": 70, "category": "tools" },
+      { "name": "n8n (AI automation)", "level": 70, "category": "tools" },
       { "name": "Claude Code", "level": 70, "category": "tools" },
       { "name": ".NET Framework", "level": 60, "category": "tools" },
       { "name": "ASP.NET Core", "level": 60, "category": "tools" },
       { "name": "Windows Forms", "level": 60, "category": "tools" }
-    ]
+    ],
+    "subtitle": "Technologies I work with, grouped by experience level."
   },
   "experience": {
     "heading1": "My",
@@ -106,7 +116,11 @@
           "Writing of functional and technical documentation and user manuals",
           "Comprehensive testing of developed solutions (QA, functional and technical validation)"
         ],
-        "clients": ["Medife", "Sol Naciente", "Banco Industrial (BIND)"],
+        "clients": [
+          "Medife",
+          "Sol Naciente",
+          "Banco Industrial (BIND)"
+        ],
         "projects": [
           "Property Management",
           "Collections Portal",
@@ -130,7 +144,9 @@
         "clients": [],
         "projects": []
       }
-    ]
+    ],
+    "showMore": "Show more",
+    "showLess": "Show less"
   },
   "education": {
     "heading1": "Education",
@@ -143,7 +159,11 @@
         "period": "March 2021 - Present",
         "title": "Bachelor's Degree in Information Systems",
         "institution": "Universidad Nacional de Lanús",
-        "detail": "31 of 36 courses completed."
+        "detail": "31 of 36 courses completed.",
+        "progress": {
+          "done": 31,
+          "total": 36
+        }
       },
       {
         "period": "March 2015 - November 2020",
@@ -187,37 +207,54 @@
     "languages": [
       { "name": "Spanish", "level": "Native" },
       { "name": "English", "level": "Lower intermediate" }
-    ]
+    ],
+    "progressLabel": "courses completed"
   },
   "projects": {
     "heading1": "Featured",
     "heading2": "Projects",
-    "subtitle": "Here are some of my most recent projects.",
-    "githubCta": "My Github",
+    "subtitle": "A selection of personal, academic and production projects.",
+    "githubCta": "More on GitHub",
     "productiveBadge": "Production site",
     "items": [
       {
         "title": "AI File Replacer",
         "description": "Production site: upload a document, the AI detects its variable fields, fill in the values and download the regenerated file with the same format",
-        "image": "/projects/project5.png",
-        "tags": ["Next.js", "TypeScript", "PostgreSQL", "Prisma", "Google Gemini"],
+        "image": "/projects/project5.webp",
+        "tags": [
+          "Next.js",
+          "TypeScript",
+          "PostgreSQL",
+          "Prisma",
+          "Google Gemini"
+        ],
         "demoUrl": "https://filereplacer.tl256.com/es",
         "githubUrl": "#",
-        "productive": true
+        "productive": true,
+        "featured": true
       },
       {
         "title": "Real Estate Management Module",
         "description": "Odoo 18 module built with a team to manage real estate properties: property listings, client tracking and the status of each ongoing operation.",
-        "image": "/projects/project1.png",
-        "tags": ["Odoo 18", "Python", "PostgreSQL"],
+        "image": "/projects/project1.webp",
+        "tags": [
+          "Odoo 18",
+          "Python",
+          "PostgreSQL"
+        ],
         "demoUrl": "#",
         "githubUrl": "https://github.com/Thlivon/odoo_unla_2025_grupo_m"
       },
       {
         "title": "E-commerce BanfieldGL",
         "description": "Tienda Nube online store with a custom warranty system: sales and product back office, public warranty lookup and claims with PDF receipts.",
-        "image": "/projects/project3.png",
-        "tags": ["Tienda Nube", "JavaScript", "Google Tag Manager", "Apps Script"],
+        "image": "/projects/project3.webp",
+        "tags": [
+          "Tienda Nube",
+          "JavaScript",
+          "Google Tag Manager",
+          "Apps Script"
+        ],
         "demoUrl": "https://www.banfieldgl.com/",
         "githubUrl": "#",
         "productive": true
@@ -225,30 +262,42 @@
       {
         "title": "WhatsApp Chat Analyzer",
         "description": "Streamlit dashboard that analyzes WhatsApp chat exports: most active user, frequent emojis and word clouds.",
-        "image": "/projects/project4.png",
-        "tags": ["Python", "Streamlit", "pandas"],
+        "image": "/projects/project4.webp",
+        "tags": [
+          "Python",
+          "Streamlit",
+          "pandas"
+        ],
         "demoUrl": "#",
         "githubUrl": "https://github.com/Thlivon/tp-ing-soft-iii"
       },
       {
         "title": "Desktop App for Sales Management",
         "description": "Desktop app built in VB.NET with a layered architecture (BLL, DAL, Entities) to manage sales, customers, products and stock for a small business.",
-        "image": "/projects/project2.png",
-        "tags": ["Visual Basic .NET", "SQL Server"],
+        "image": "",
+        "tags": [
+          "Visual Basic .NET",
+          "SQL Server"
+        ],
         "demoUrl": "#",
         "githubUrl": "#"
       }
-    ]
+    ],
+    "viewSite": "Live site",
+    "viewCode": "Code",
+    "noImage": "No screenshot available"
   },
   "contact": {
-    "heading": "Contact",
-    "subtitle": "Have a project in mind or want to collaborate? Feel free to reach out. I'm always open to new opportunities.",
-    "infoTitle": "Contact Information",
+    "subtitle": "Have a project in mind or a job opportunity? Send me a message and I'll get back to you soon.",
     "emailLabel": "Email",
     "phoneLabel": "Phone",
     "locationLabel": "Location",
     "location": "Buenos Aires Province, Argentina",
-    "usefulLinksTitle": "Useful Links"
+    "title": "Let's talk",
+    "emailCta": "Email me",
+    "copyEmail": "Copy email",
+    "copied": "Email copied!",
+    "socialTitle": "Social"
   },
   "footer": {
     "rights": "All rights reserved."
