@@ -2,29 +2,33 @@
 
 ¡Bienvenido al repositorio de mi sitio web de portfolio personal! Este sitio web muestra mi trabajo, habilidades y experiencia como desarrollador.
 
-🔗 Producción: [thomas-livon.vercel.app](https://thomas-livon.vercel.app)
+🔗 Producción: [portfolio.tl256.com](https://portfolio.tl256.com) (también responde en [thomas-livon.vercel.app](https://thomas-livon.vercel.app))
 
 ## 🌟 Características
 
 - **Bilingüe (ES/EN)**: sitio completo en español e inglés, con rutas `/es` y `/en` y detección automática del idioma del navegador
 - **Diseño Responsivo**: sitio web completamente adaptable que funciona en todos los dispositivos
 - **Tema Claro/Oscuro**: funcionalidad de cambio de tema, disponible también en mobile
-- **Interfaz Moderna**: diseño limpio con fondo animado de estrellas y meteoros
+- **Interfaz Moderna**: diseño limpio con fondo animado de estrellas y meteoros (en modo oscuro)
+- **Pre-renderizado**: `/es` y `/en` se generan como HTML estático en el build (SEO y previews de LinkedIn/WhatsApp) y React hidrata encima
+- **SEO**: meta tags y Open Graph por idioma, `hreflang`, JSON-LD, `sitemap.xml` y `robots.txt`
 - **Secciones**:
-  - Hero con presentación
-  - Sobre Mí
-  - Experiencia laboral
-  - Habilidades (filtrables por categoría)
+  - Hero con rol, CTAs y redes
   - Proyectos destacados
+  - Experiencia laboral (timeline)
+  - Habilidades (agrupadas por categoría y nivel)
+  - Sobre Mí
   - Educación y cursos
-  - Contacto
+  - Contacto (con copiar email)
 
 ## 🛠️ Construido Con
 
 - **React 19** + **Vite 6** - Frontend y build
 - **Tailwind CSS v4** - Estilos (tokens definidos en `src/index.css`, sin `tailwind.config.js`)
 - **react-router-dom v7** - Ruteo (`/es`, `/en`)
-- **ESLint** - Linting de código
+- **ESLint** - Linting de código (también corre en CI con GitHub Actions)
+- **Inter** (`@fontsource-variable/inter`) - tipografía self-hosted
+- **Vercel Analytics + Speed Insights** - visitas y Web Vitals (solo en el deploy de Vercel)
 
 ## 🚀 Comenzando
 
@@ -74,9 +78,12 @@ src/
 ├── components/    # Navbar, ThemeToggle, LanguageSwitcher y las secciones de la home
 ├── i18n/          # detección de idioma y contexto de traducciones
 ├── messages/      # es.json, en.json — todo el contenido textual del sitio
-├── hooks/         # hooks personalizados de React
-├── lib/           # funciones de utilidad
-└── pages/         # Home, NotFound
+├── lib/           # cn() y profile.js (email, redes, URL del CV)
+├── pages/         # Home, NotFound
+├── main.jsx       # entrada del cliente (hidrata el HTML pre-renderizado)
+└── entry-server.jsx # entrada SSR usada solo en el build
+scripts/
+└── prerender.js   # genera dist/es y dist/en con HTML + meta tags
 ```
 
 ## 🤖 Comandos de Claude Code

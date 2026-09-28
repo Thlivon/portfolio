@@ -1,51 +1,31 @@
 import { Sun, Moon } from "lucide-react";
-import { useEffect, useState } from "react";
-import { cn } from "@/lib/utils";
 import { useTranslations } from "@/i18n/LanguageProvider";
 
+// El tema inicial lo aplica el script inline de index.html (antes de pintar). Acá solo se
+// alterna la clase; el ícono se resuelve con CSS (dark:), así no hay estado que desincronizar.
 export const ThemeToggle = () => {
   const { messages } = useTranslations();
-  const [isDarkMode, setIsDarkMode] = useState(true);
 
-  useEffect(() => {
-    const storedTheme = localStorage.getItem("theme");
-    if (storedTheme === "light") {
-      document.documentElement.classList.remove("dark");
-      setIsDarkMode(false);
-    } else {
-      document.documentElement.classList.add("dark");
-      localStorage.setItem("theme", "dark");
-      setIsDarkMode(true);
-    }
-  }, []);
-
-  //Función que cambia entre modo oscuro/claro y guarda las preferencia del usuario en el localstorage
   const toggleTheme = () => {
-    if (isDarkMode) {
-      document.documentElement.classList.remove("dark");
-      localStorage.setItem("theme", "light");
-      setIsDarkMode(false);
-    } else {
-      document.documentElement.classList.add("dark");
-      localStorage.setItem("theme", "dark");
-      setIsDarkMode(true);
+    const isDark = document.documentElement.classList.toggle("dark");
+    document.querySelector('meta[name="theme-color"]')?.setAttribute("content", isDark ? "#060914" : "#f8fafc");
+    try {
+      localStorage.setItem("theme", isDark ? "dark" : "light");
+    } catch {
+      // storage bloqueado (modo privado): el cambio vale solo para esta visita
     }
   };
 
   return (
     <button
+      type="button"
       onClick={toggleTheme}
-      aria-label={isDarkMode ? messages.theme.toggleToLight : messages.theme.toggleToDark}
-      className={cn(
-        "p-2 rounded-full transition-colors duration-300",
-        "focus:outline-hidden"
-      )}
+      aria-label={messages.theme.toggle}
+      title={messages.theme.toggle}
+      className="p-2 rounded-full text-foreground/80 hover:text-primary hover:bg-primary/10 transition-colors duration-300"
     >
-      {isDarkMode ? (
-        <Sun className="h-6 w-6 text-yellow-300" />
-      ) : (
-        <Moon className="h-6 w-6 text-blue-900" />
-      )}
+      <Sun className="h-5 w-5 hidden dark:block" aria-hidden="true" />
+      <Moon className="h-5 w-5 dark:hidden" aria-hidden="true" />
     </button>
   );
 };

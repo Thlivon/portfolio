@@ -1,63 +1,52 @@
-import { Briefcase, Code, User } from "lucide-react";
+import { Briefcase, Code, Download, User } from "lucide-react";
 import { useTranslations } from "@/i18n/LanguageProvider";
+import { SectionHeading } from "@/components/SectionHeading";
+import { PROFILE } from "@/lib/profile";
 
-const ICONS = [Code, User, Briefcase];
+const ICONS = { code: Code, user: User, briefcase: Briefcase };
 
-export const AboutSection = () => {
+export const AboutSection = ({ number }) => {
   const { messages } = useTranslations();
-  const { about } = messages;
+  const { about, nav } = messages;
 
   return (
-    <section id="about" className="py-24 px-4 relative">
-      {" "}
+    <section id="about" className="py-24 px-4 relative bg-secondary/30">
       <div className="container mx-auto max-w-5xl">
-        <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
-          {about.heading1} <span className="text-primary"> {about.heading2}</span>
-        </h2>
+        <SectionHeading number={number} eyebrow={nav.about} title={about.heading1} highlight={about.heading2} />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
           <div className="space-y-6">
-            <h3 className="text-2xl font-semibold">{about.role}</h3>
-
-            <p className="text-muted-foreground">{about.paragraph1}</p>
-
+            <p className="text-muted-foreground text-lg">{about.paragraph1}</p>
             <p className="text-muted-foreground">{about.paragraph2}</p>
 
-            <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-4 pt-2">
               <a href="#contact" className="cosmic-button">
-                {" "}
                 {about.contactCta}
               </a>
-
-              <a
-                href="https://drive.google.com/drive/folders/1REodZWPIyKNbVxmDdp_Zz6RkLyhAoPyj?usp=sharing"
-                className="px-6 py-2 rounded-full border border-primary text-primary hover:bg-primary/10 transition-colors duration-300"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {about.downloadCv}
+              <a href={PROFILE.cvUrl} className="outline-button" target="_blank" rel="noopener noreferrer">
+                {about.downloadCv} <Download size={16} aria-hidden="true" />
               </a>
             </div>
           </div>
 
-          <div className="grid grid-cols-1 gap-6">
-            {about.cards.map((card, index) => {
-              const Icon = ICONS[index];
+          <ul className="grid grid-cols-1 gap-6">
+            {about.cards.map((card) => {
+              const Icon = ICONS[card.icon] ?? Code;
               return (
-                <div key={card.title} className="bg-card p-6 rounded-lg shadow-xs card-hover">
+                <li key={card.title} className="bg-card border border-border p-6 rounded-xl shadow-xs">
                   <div className="flex items-start gap-4">
-                    <div className="p-3 rounded-full bg-primary/10">
-                      <Icon className="h-6 w-6 text-primary" />
+                    <div className="p-3 rounded-full bg-primary/10 shrink-0">
+                      <Icon className="h-6 w-6 text-primary" aria-hidden="true" />
                     </div>
-                    <div className="text-left">
-                      <h4 className="font-semibold text-lg"> {card.title}</h4>
+                    <div>
+                      <h3 className="font-semibold text-lg">{card.title}</h3>
                       <p className="text-muted-foreground">{card.description}</p>
                     </div>
                   </div>
-                </div>
+                </li>
               );
             })}
-          </div>
+          </ul>
         </div>
       </div>
     </section>

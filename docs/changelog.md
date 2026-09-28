@@ -1,5 +1,79 @@
 # Changelog
 
+## 2026-09-28 (14) — Dominio propio `portfolio.tl256.com`
+
+### Qué se hizo
+- `PROFILE.siteUrl` → `https://portfolio.tl256.com`: canonical, hreflang, `og:url`, `og:image` y JSON-LD del pre-render salen de ahí. También `sitemap.xml`, `robots.txt`, README y CLAUDE.md.
+- DNS en Cloudflare: `CNAME portfolio → cname.vercel-dns.com` (DNS only). El redirect de `tl256.com` a FileReplacer queda igual.
+
+### Decisiones
+- `thomas-livon.vercel.app` sigue sirviendo el sitio (sin redirect) hasta actualizar los CV; el canonical ya apunta al dominio nuevo, así que Google consolida ahí.
+
+### Pendientes
+- Cuando los CV tengan la URL nueva: redirigir `thomas-livon.vercel.app` → `portfolio.tl256.com` (Vercel → Domains → Redirect, 308).
+
+## 2026-09-24 (13) — Aplicación de docs/mejoras.md: bugs, rediseño UX/UI, pre-render y SEO
+
+Rama `feat/mejoras-ux-perf`.
+
+### Qué se hizo
+- **Bugs (1.1–1.7)**: barras de skills reemplazadas (el keyframe `grow` no existía); `animationDelay` de meteoros con unidad (y `opacity: 0` base para que no se vean quietos durante el delay); hero corto y `min-h-svh` (el indicador ya no pisa el CTA; se oculta en mobile y en pantallas bajas); navbar desktop desde `lg` con 6 links `whitespace-nowrap` ("Inicio" sacado, el logo cumple esa función); estrellas solo se regeneran si cambia el ancho (con debounce); placeholder para proyectos sin imagen; lint sin errores (form muerto borrado + `globals.node` para `vite.config.js`/`scripts`).
+- **Orden de secciones**: Hero → Proyectos → Experiencia → Skills → Sobre mí → Educación → Contacto, con encabezado común `SectionHeading` ("01 · Proyectos"), fondos alternados.
+- **Hero**: badge "Abierto a nuevas oportunidades", rol visible, descripción de 1 línea (83 → 25 palabras), CTAs "Ver proyectos" + "Descargar CV", íconos de LinkedIn/GitHub/email.
+- **Proyectos**: card destacada a 2 columnas (FileReplacer), botones con texto "Ver sitio"/"Código", título clickeable, imagen 2:1 lazy con `width/height`, badge arriba a la izquierda.
+- **Skills**: 3 columnas (Frontend / Backend & Datos / Frameworks & Herramientas) con chips agrupados por nivel; sin barras ni filtros. Mobile: 3.768px → 1.592px.
+- **Experiencia**: timeline vertical; 3 bullets visibles y el resto en `<details>` "Ver más (+n)".
+- **Educación**: barra de progreso 31/36 en la licenciatura; cursos en lista compacta.
+- **Contacto**: banner "¿Hablamos?" con "Escribime" y "Copiar email" (`navigator.clipboard`), datos en una línea, redes. Footer con redes y "Volver arriba".
+- **Navbar**: sección activa (IntersectionObserver), menú mobile con `Escape`, bloqueo de scroll, `aria-expanded`, `inert` cerrado; skip link "Saltar al contenido"; listener de scroll `passive`.
+- **Estética**: Inter variable self-hosted (`@fontsource-variable/inter`, con preload de la subfuente latina); `outline-button`; `text-gradient` (se usaba sin estar definido) con token `--gradient-end` en ambos temas; `card-hover` solo en proyectos (borde/sombra en vez de escala); cards con borde; estrellas ocultas en modo claro; `focus-visible` global; `#root { text-align:center }` eliminado.
+- **Contraste**: texto de botón primario en dark 3.29:1 → ~5.5:1 (`--primary-foreground` oscuro). Sol/luna usan colores del sistema.
+- **Tema**: script inline en `<head>` aplica el tema antes de pintar (sin flash) y usa `prefers-color-scheme` si no hay preferencia guardada. `ThemeToggle` sin estado (ícono por CSS `dark:`), `@custom-variant dark` ligado a `.dark`.
+- **Pre-render**: `entry-server.jsx` + `scripts/prerender.js` generan `dist/es` y `dist/en` con HTML completo y `<head>` por idioma (title, description, canonical, hreflang, OG, Twitter Card, JSON-LD Person). `main.jsx` hidrata. Verificado sin errores de hidratación en `vite preview`, con cambio de idioma y 404.
+- **SEO/assets**: `lang="es"`, `og-image.png` 1200×630, favicon "TL", `apple-touch-icon.png`, `robots.txt`, `sitemap.xml`. Imágenes de proyectos a WebP 800px (280 KB → 30 KB la más pesada; total ~60 KB).
+- **Vercel**: `vercel.json` con rewrites explícitos de `/es` y `/en`, headers de seguridad y caché inmutable en `/assets`. Analytics + Speed Insights (solo se renderizan en el build de Vercel).
+- **Código muerto**: borrados `ui/toast*`, `use-toast`, `<Toaster/>`, `@radix-ui/react-toast`, `class-variance-authority`, `react.svg`, `vite.svg`, `briefcase-business.svg`, PNGs originales. JS: 321 KB → 306 KB (con analytics incluido).
+- **CI**: `.github/workflows/ci.yml` (lint + build).
+- **Copy**: español unificado a voseo ("Desplazate", "Contactame", "buscás"); "n8n-AI workflow automation" → "n8n (automatización con IA)".
+- Docs: CLAUDE.md (pre-render, reglas de SSR, utilidades, profile.js), README, y comandos `/agregar-proyecto` (WebP, `productive`) y `/agregar-skill` (niveles cualitativos).
+
+### Revisión de código (sobre la misma rama) — corregido
+- Año del footer: `suppressHydrationWarning` (el HTML pre-renderizado trae el año del build; en año nuevo rompía la hidratación).
+- Menú mobile abierto + viewport que pasa a `lg` (rotar tablet) dejaba el scroll bloqueado sin botón visible: ahora se cierra con `matchMedia`.
+- `prerender.js`: replacers como función (un `$&`/`$'` en el contenido corrompía el HTML); el escape `<` del JSON-LD no se aplicaba (`"<"` → `"\\u003c"`); la shell (`/` y 404s) ya no declara canonical/og:url/hreflang a `/es`; `x-default` → `/es`; usa `PROFILE` en vez de URLs duplicadas.
+- "Copiar email": timeout único y limpiado al desmontar.
+- `theme-color` sigue al tema (script inline + `ThemeToggle`).
+- Redes duplicadas en Hero/Contacto/Footer → `SocialLinks.jsx`; etiquetas en `messages.social` (regla de CLAUDE.md).
+- Barra de progreso de Educación sin animación (corría fuera de pantalla); keyframe `grow` eliminado al no tener más usos.
+
+### Accesibilidad y mobile — corregido
+- Auditoría de contraste automática sobre todo el texto en ambos temas: `--muted-foreground` en claro 47% → 38% (estaba en 4.34–4.49:1, ahora ≥ 4.5); badge del hero con texto `foreground`. Resultado: 0 textos debajo de AA.
+- Sin links/botones sin nombre, imágenes sin `alt`, saltos de encabezado ni IDs duplicados.
+- Áreas táctiles de 24px (WCAG 2.5.8) en links del navbar y "Ver sitio"/"Código".
+- `container` con `padding-inline` de 0.5rem en mobile (antes 2rem + el `px-4` de cada sección dejaban ~280px de texto); timeline de Experiencia con menos sangría en mobile.
+- Alto total de la página: desktop 7.793px → 6.722px; mobile 14.765px → 11.344px.
+
+### Decisiones
+- Pre-render con un script propio (~90 líneas) en vez de `vite-react-ssg`/Next: el sitio tiene 2 páginas y ya usa react-router; no justifica un framework.
+- Contenido que requiere datos reales **no se inventó**: logros con métricas en Experiencia, foto, testimonios, páginas por proyecto, CV en PDF sin datos sensibles. Quedan pendientes.
+- Teléfono se mantiene publicado (decisión personal); ver pendientes.
+- GitHub Pages se mantiene (el build sigue funcionando con `base: /portfolio/`, verificado).
+
+### Pendiente
+- **Activar Web Analytics y Speed Insights** en el dashboard de Vercel (Project → Analytics / Speed Insights → Enable); sin eso los scripts devuelven 404.
+- Subir `project2.webp` (captura del sistema VB.NET) y el repo, o quitar la card.
+- CV en PDF público sin DNI/domicilio en `public/` para reemplazar la carpeta de Drive (`PROFILE.cvUrl` en `src/lib/profile.js`).
+- Reescribir 2–3 bullets de Experiencia como logros con resultado medible.
+- Foto de perfil, testimonios, páginas por proyecto, dominio propio, formulario con backend.
+
+## 2026-09-24 (12) — Nuevo análisis de mejoras (UX/UI, estética, performance)
+
+### Qué se hizo
+- `docs/mejoras.md` reescrito: reemplaza el análisis del 2026-09-20 (lo resuelto de ese análisis ya estaba en este changelog). Incluye 7 bugs verificados midiendo en el DOM (keyframe `grow` inexistente, `animationDelay` de meteoros sin unidad, "Desplázate" pisando el CTA en mobile, "Sobre mí" partido en el navbar a 1024px, estrellas que se regeneran al scrollear en mobile, `project2.png` faltante, lint roto), análisis de UX/contenido, estética y performance, con esfuerzo estimado y priorización.
+
+### Pendiente
+- Todo lo listado en `docs/mejoras.md`; no se tocó código.
+
 ## 2026-09-24 (11) — Documentos privados fuera de git
 
 ### Qué se hizo

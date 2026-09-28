@@ -1,72 +1,82 @@
 import { BookOpen, GraduationCap, Languages } from "lucide-react";
 import { useTranslations } from "@/i18n/LanguageProvider";
+import { SectionHeading } from "@/components/SectionHeading";
 
-export const EducationSection = () => {
+const Subtitle = ({ Icon, children }) => (
+  <h3 className="text-xl font-semibold flex items-center gap-3">
+    <Icon className="h-5 w-5 text-primary" aria-hidden="true" />
+    {children}
+  </h3>
+);
+
+export const EducationSection = ({ number }) => {
   const { messages } = useTranslations();
-  const { education } = messages;
+  const { education, nav } = messages;
 
   return (
     <section id="education" className="py-24 px-4 relative">
       <div className="container mx-auto max-w-5xl">
-        <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
-          {education.heading1} <span className="text-primary"> {education.heading2}</span>
-        </h2>
+        <SectionHeading
+          number={number}
+          eyebrow={nav.education}
+          title={education.heading1}
+          highlight={education.heading2}
+        />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div className="space-y-6">
-            <h3 className="text-2xl font-semibold flex items-center gap-3">
-              <GraduationCap className="h-6 w-6 text-primary" />
-              {education.academicTitle}
-            </h3>
+            <Subtitle Icon={GraduationCap}>{education.academicTitle}</Subtitle>
             {education.education.map((item) => (
-              <div
-                key={item.title}
-                className="bg-card p-6 rounded-lg shadow-xs card-hover"
-              >
-                <p className="text-sm text-muted-foreground mb-1">
-                  {item.period}
-                </p>
+              <div key={item.title} className="bg-card border border-border p-6 rounded-xl shadow-xs">
+                <p className="text-sm text-muted-foreground mb-1">{item.period}</p>
                 <h4 className="font-semibold text-lg">{item.title}</h4>
                 <p className="text-primary">{item.institution}</p>
-                {item.detail && (
-                  <p className="text-muted-foreground mt-2">{item.detail}</p>
+                {item.progress && (
+                  <div className="mt-4">
+                    <div
+                      className="h-2 w-full rounded-full bg-secondary overflow-hidden"
+                      role="progressbar"
+                      aria-valuemin={0}
+                      aria-valuemax={item.progress.total}
+                      aria-valuenow={item.progress.done}
+                      aria-label={education.progressLabel}
+                    >
+                      <div
+                        className="h-full bg-primary rounded-full"
+                        style={{ width: `${(item.progress.done / item.progress.total) * 100}%` }}
+                      />
+                    </div>
+                    <p className="text-sm text-muted-foreground mt-2">
+                      {item.progress.done}/{item.progress.total} {education.progressLabel}
+                    </p>
+                  </div>
                 )}
               </div>
             ))}
 
-            <h3 className="text-2xl font-semibold flex items-center gap-3 pt-4">
-              <Languages className="h-6 w-6 text-primary" />
-              {education.languagesTitle}
-            </h3>
-            <div className="bg-card p-6 rounded-lg shadow-xs">
-              <ul className="space-y-2">
-                {education.languages.map((lang) => (
-                  <li key={lang.name} className="flex justify-between">
-                    <span className="font-medium">{lang.name}</span>
-                    <span className="text-muted-foreground">{lang.level}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
+            <Subtitle Icon={Languages}>{education.languagesTitle}</Subtitle>
+            <ul className="bg-card border border-border p-6 rounded-xl shadow-xs space-y-2">
+              {education.languages.map((lang) => (
+                <li key={lang.name} className="flex justify-between">
+                  <span className="font-medium">{lang.name}</span>
+                  <span className="text-muted-foreground">{lang.level}</span>
+                </li>
+              ))}
+            </ul>
           </div>
 
           <div className="space-y-6">
-            <h3 className="text-2xl font-semibold flex items-center gap-3">
-              <BookOpen className="h-6 w-6 text-primary" />
-              {education.coursesTitle}
-            </h3>
-            {education.courses.map((course) => (
-              <div
-                key={course.title}
-                className="bg-card p-6 rounded-lg shadow-xs card-hover"
-              >
-                <p className="text-sm text-muted-foreground mb-1">
-                  {course.date} · {course.platform}
-                </p>
-                <h4 className="font-semibold text-lg">{course.title}</h4>
-                <p className="text-muted-foreground mt-1">{course.detail}</p>
-              </div>
-            ))}
+            <Subtitle Icon={BookOpen}>{education.coursesTitle}</Subtitle>
+            <ul className="bg-card border border-border rounded-xl shadow-xs divide-y divide-border">
+              {education.courses.map((course) => (
+                <li key={course.title} className="p-5">
+                  <h4 className="font-medium">{course.title}</h4>
+                  <p className="text-sm text-muted-foreground mt-1">
+                    {course.date} · {course.platform} · {course.detail}
+                  </p>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </div>
