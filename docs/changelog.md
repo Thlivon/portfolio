@@ -1,5 +1,13 @@
 # Changelog
 
+## 2026-09-28 (15) — Imagen Open Graph con el dominio nuevo
+
+### Qué se hizo
+- `public/og-image.png` regenerada (mismo diseño, 1200×630): el pie ahora dice `portfolio.tl256.com` en vez de `thomas-livon.vercel.app`.
+
+### Pendiente
+- LinkedIn y WhatsApp cachean la preview: para ver la imagen nueva en LinkedIn, re-scrapear la URL en el Post Inspector (linkedin.com/post-inspector).
+
 ## 2026-09-28 (14) — Dominio propio `portfolio.tl256.com`
 
 ### Qué se hizo
