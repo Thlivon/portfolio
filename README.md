@@ -2,7 +2,7 @@
 
 ¡Bienvenido al repositorio de mi sitio web de portfolio personal! Este sitio web muestra mi trabajo, habilidades y experiencia como desarrollador.
 
-🔗 Producción: [thomas-livon.vercel.app](https://thomas-livon.vercel.app)
+🔗 Producción: [portfolio.tl256.com](https://portfolio.tl256.com) (también responde en [thomas-livon.vercel.app](https://thomas-livon.vercel.app))
 
 ## 🌟 Características
 

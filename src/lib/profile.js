@@ -7,5 +7,5 @@ export const PROFILE = {
   linkedin: "https://www.linkedin.com/in/thomas-livon-852b84203/",
   github: "https://github.com/Thlivon",
   cvUrl: "https://drive.google.com/drive/folders/1REodZWPIyKNbVxmDdp_Zz6RkLyhAoPyj?usp=sharing",
-  siteUrl: "https://thomas-livon.vercel.app",
+  siteUrl: "https://portfolio.tl256.com",
 };

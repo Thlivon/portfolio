@@ -18,7 +18,7 @@ npm run preview  # sirve el build de dist/
 ## Deploy
 
 Dos destinos activos, resueltos en `vite.config.js` vía `process.env.VERCEL`:
-- **Vercel** (principal, `thomas-livon.vercel.app`): `base: "/"`. `vercel.json` reescribe todo a `index.html` (necesario para el SPA con rutas `/es`, `/en`).
+- **Vercel** (principal, dominio `portfolio.tl256.com` vía CNAME en Cloudflare; `thomas-livon.vercel.app` sigue activo hasta actualizar los CV): `base: "/"`. `vercel.json` reescribe todo a `index.html` (necesario para el SPA con rutas `/es`, `/en`).
 - **GitHub Pages** (legado, ver `package.json` scripts `gh-pages`/`predeploy`): `base: "/portfolio/"`.
 
 Si se abandona GitHub Pages, borrar `homepage`/`gh-pages` de `package.json`, el `base` condicional y el `basename` de `BrowserRouter`.

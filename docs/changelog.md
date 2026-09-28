@@ -1,5 +1,17 @@
 # Changelog
 
+## 2026-09-28 (14) — Dominio propio `portfolio.tl256.com`
+
+### Qué se hizo
+- `PROFILE.siteUrl` → `https://portfolio.tl256.com`: canonical, hreflang, `og:url`, `og:image` y JSON-LD del pre-render salen de ahí. También `sitemap.xml`, `robots.txt`, README y CLAUDE.md.
+- DNS en Cloudflare: `CNAME portfolio → cname.vercel-dns.com` (DNS only). El redirect de `tl256.com` a FileReplacer queda igual.
+
+### Decisiones
+- `thomas-livon.vercel.app` sigue sirviendo el sitio (sin redirect) hasta actualizar los CV; el canonical ya apunta al dominio nuevo, así que Google consolida ahí.
+
+### Pendientes
+- Cuando los CV tengan la URL nueva: redirigir `thomas-livon.vercel.app` → `portfolio.tl256.com` (Vercel → Domains → Redirect, 308).
+
 ## 2026-09-24 (13) — Aplicación de docs/mejoras.md: bugs, rediseño UX/UI, pre-render y SEO
 
 Rama `feat/mejoras-ux-perf`.
