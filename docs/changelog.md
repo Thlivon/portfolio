@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-10-11 (17) — Orden de proyectos
+
+- "Sitio de Talleres de Coaching" pasa a ir después de "E-commerce BanfieldGL" (es/en). Orden: Reemplazador de Archivos con IA → Módulo Inmobiliaria → BanfieldGL → Talleres de Coaching → Analizador de WhatsApp → Gestión de Ventas.
+
 ## 2026-10-11 (16) — Proyecto nuevo: sitio de talleres de coaching
 
 Rama `feat/proyecto-samanta`.
