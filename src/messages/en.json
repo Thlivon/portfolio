@@ -260,6 +260,20 @@
         "productive": true
       },
       {
+        "title": "Coaching Workshops Website",
+        "description": "Production site where an ontological coach promotes leadership workshops: each workshop has its own page with a distinct visual identity (palette, textures and effects).",
+        "image": "/projects/project6.webp",
+        "tags": [
+          "Astro",
+          "TypeScript",
+          "CSS",
+          "Markdown"
+        ],
+        "demoUrl": "https://samanta.tl256.com/",
+        "githubUrl": "#",
+        "productive": true
+      },
+      {
         "title": "WhatsApp Chat Analyzer",
         "description": "Streamlit dashboard that analyzes WhatsApp chat exports: most active user, frequent emojis and word clouds.",
         "image": "/projects/project4.webp",
@@ -281,20 +295,6 @@
         ],
         "demoUrl": "#",
         "githubUrl": "#"
-      },
-      {
-        "title": "Coaching Workshops Website",
-        "description": "Production site where an ontological coach promotes leadership workshops: each workshop has its own page with a distinct visual identity (palette, textures and effects).",
-        "image": "/projects/project6.webp",
-        "tags": [
-          "Astro",
-          "TypeScript",
-          "CSS",
-          "Markdown"
-        ],
-        "demoUrl": "https://samanta.tl256.com/",
-        "githubUrl": "#",
-        "productive": true
       }
     ],
     "viewSite": "Live site",

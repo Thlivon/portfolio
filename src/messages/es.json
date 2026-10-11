@@ -260,6 +260,20 @@
         "productive": true
       },
       {
+        "title": "Sitio de Talleres de Coaching",
+        "description": "Sitio productivo para una coach ontológica que promociona sus talleres de liderazgo: cada taller tiene su propia página con identidad visual propia (paleta, texturas y efectos).",
+        "image": "/projects/project6.webp",
+        "tags": [
+          "Astro",
+          "TypeScript",
+          "CSS",
+          "Markdown"
+        ],
+        "demoUrl": "https://samanta.tl256.com/",
+        "githubUrl": "#",
+        "productive": true
+      },
+      {
         "title": "Analizador de Chats de WhatsApp",
         "description": "Dashboard en Streamlit que analiza exports de chats de WhatsApp: usuario más activo, emojis frecuentes y nube de palabras.",
         "image": "/projects/project4.webp",
@@ -281,20 +295,6 @@
         ],
         "demoUrl": "#",
         "githubUrl": "#"
-      },
-      {
-        "title": "Sitio de Talleres de Coaching",
-        "description": "Sitio productivo para una coach ontológica que promociona sus talleres de liderazgo: cada taller tiene su propia página con identidad visual propia (paleta, texturas y efectos).",
-        "image": "/projects/project6.webp",
-        "tags": [
-          "Astro",
-          "TypeScript",
-          "CSS",
-          "Markdown"
-        ],
-        "demoUrl": "https://samanta.tl256.com/",
-        "githubUrl": "#",
-        "productive": true
       }
     ],
     "viewSite": "Ver sitio",
