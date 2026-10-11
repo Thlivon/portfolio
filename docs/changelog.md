@@ -1,5 +1,21 @@
 # Changelog
 
+## 2026-10-11 (16) — Proyecto nuevo: sitio de talleres de coaching
+
+Rama `feat/proyecto-samanta`.
+
+### Qué se hizo
+- Nuevo ítem al final de `projects.items` (es/en): "Sitio de Talleres de Coaching" / "Coaching Workshops Website", sitio productivo en https://samanta.tl256.com/ (repo `Thlivon/sginefra`).
+- `public/projects/project6.webp`: captura de la home de producción (viewport 1440×650, WebP 800×365).
+
+### Decisiones
+- `githubUrl: "#"` porque el repo es privado.
+- Tags: Astro, TypeScript, CSS, Markdown (los talleres son content collections en `.md`; CSS propio sin framework). Vercel quedó afuera: los demás proyectos no listan hosting.
+- La descripción no menciona tipografía: hoy hay un solo taller publicado (tema `hielo`) y lo que se ve es paleta, texturas y efectos.
+
+### Pendiente
+- Cuando haya más talleres publicados, se puede ajustar la descripción o la captura para mostrar la variedad de estilos.
+
 ## 2026-09-28 (15) — Imagen Open Graph con el dominio nuevo
 
 ### Qué se hizo
